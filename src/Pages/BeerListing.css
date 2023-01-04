@@ -5,4 +5,9 @@
   margin: 50px 5px;
   max-width: 500px;
   align-self: center;
+  padding: 25px;
+}
+
+.attribute {
+  font-weight: bold;
 }
