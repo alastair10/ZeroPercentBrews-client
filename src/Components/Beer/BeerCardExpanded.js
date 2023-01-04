@@ -1,9 +1,11 @@
 import star from '../../images/star.svg';
+import beerImage from '../../images/beer_placeholder.png';
 
 const BeerCardExpanded = () => {
   return (
     <>
       <h1 className='beer__title'>Moretti Zero</h1>
+      <img clasName='beer__image' src={beerImage} />
       <div className='social__proof'>
         <div className='rating__info'>
           <div className='rating__score'>4.5</div>
