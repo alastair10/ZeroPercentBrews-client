@@ -1,8 +1,10 @@
+import BeerCardExpanded from "../Components/Beer/BeerCardExpanded";
+
 const BeerListing = () => {
 
   return (
     <>
-      <div>PLACEHOLDER FOR BEERCARDEXPANDED</div>
+      <BeerCardExpanded />
       <div>PLACEHOLDER FOR BEERINFO</div>
       <div>PLACEHOLDER FOR SOCIALPROOF</div>
     </>
