@@ -1,0 +1,8 @@
+.ratings__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  text-align: center;
+  font-weight: bold;
+  gap: 10px 20px;
+}
