@@ -5,7 +5,7 @@ const Rating = () => {
 
   return (
     <>
-      <h2 className='review__count'>2 Reviews</h2>
+      <h2 className='review__count'  id='reviews'>2 Reviews</h2>
 
       <div className='ratings__container'>
         <div className='rating__item'>

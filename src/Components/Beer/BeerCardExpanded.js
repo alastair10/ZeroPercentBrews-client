@@ -19,7 +19,7 @@ const BeerCardExpanded = () => {
               <img src={star} className='rating__star' alt='star__icon'/>
             </div>
 
-            <div className='reviews__info'>3 Reviews</div>
+            <a className='reviews__info' href='#reviews'>3 Reviews</a>
           </div>
    
           <div className='basic__info__item'><span className='attribute'>From:</span> Italy</div>
