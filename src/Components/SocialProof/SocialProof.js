@@ -1,9 +1,13 @@
-import Rating from './Rating'
+import Rating from './Rating';
+import ReviewCard from './ReviewCard';
 
 const SocialProof = () => {
 
   return (
-    <Rating />
+    <>
+      <Rating />
+      <ReviewCard />
+    </>
   )
 
 }
