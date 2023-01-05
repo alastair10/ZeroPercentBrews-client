@@ -6,20 +6,19 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const BeerListing = () => {
-  const { beer_id } = useParams();
-  
+  const { id } = useParams();
+
   const [beerData, setBeerData] = useState();
 
-  console.log(beer_id)
   useEffect(() => {
-    fetch(`http://localhost:4000/api/beers`)
+    fetch(`http://localhost:4000/api/beers/${id}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
+        setBeerData(data)
       });
   }, []);
 
-  // console.log(beerData);
+  console.log(beerData);
 
   return (
     <>
