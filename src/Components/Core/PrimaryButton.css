@@ -1,15 +1,15 @@
 .link button {
   color: white;
   position: absolute;
-   cursor:crosshair;
- 
-   left:167px;
-   
+  cursor: crosshair;
+
+  left: 167px;
+
   text-decoration: none;
   border-radius: 8px;
-  
-  padding: 6px 25.8px ;
+
+  padding: 6px 25.8px;
   display: flex;
   background-color: #f26323;
-  width: 3.4cm; 
+  width: 3.4cm;
 }
