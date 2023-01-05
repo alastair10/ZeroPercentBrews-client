@@ -1,5 +1,6 @@
 const data = [
   {
+    _id: 1,
     title: 'Adnams Ghost Ship Bottle Beer 0.5%',
     brand: 'Adnams',
     abv: '0.5',
@@ -8,8 +9,14 @@ const data = [
     ingredients: 'Water, Malted Barley, Malted Rye, Hops, Yeast',
     country: 'UK',
     volume: '500',
+    overall: 4.8,
+    taste: 4,
+    realness: 4,
+    value: 3,
+    reviewCount: 5,
   },
   {
+    _id: 2,
     title: 'Bavaria 0.0% Beer',
     brand: 'Bavaria',
     abv: '0',
@@ -19,8 +26,14 @@ const data = [
       'Natural Mineral Water, Barley Malt, Glucose Syrup, Hop Extract, Flavouring',
     country: 'Netherlands',
     volume: '330',
+    overall: 4.2,
+    taste: 4,
+    realness: 4,
+    value: 3,
+    reviewCount: 3,
   },
   {
+    _id: 3,
     title: 'Becks Blue Alcohol Free',
     brand: 'Becks',
     abv: '0.05',
@@ -29,6 +42,11 @@ const data = [
     ingredients: 'Water, Barley Malt, Hops, Yeast',
     country: 'Germany',
     volume: '330',
+    overall: 4.2,
+    taste: 4,
+    realness: 4,
+    value: 3,
+    reviewCount: 12,
   },
 ];
 
