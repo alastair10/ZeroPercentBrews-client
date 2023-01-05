@@ -1,0 +1,22 @@
+.navbar {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+/* 
+.navbar__links {
+  border: 1px solid green;
+}
+
+.navbar a {
+  margin-left: 16px;
+  text-decoration: none;
+}
+
+/* .navbar a:hover{  nice to have - signin/login turn orange hovered over
+  color: #F26323
+} */

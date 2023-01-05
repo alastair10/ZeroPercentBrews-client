@@ -1,10 +1,11 @@
+import "./Hero.css";
+
 const hero = () => {
   return (
-    <div>
-      <h3>
-        <p className="heroTop">Actually Not</p>
-        <p className="heroBottom">That Bad</p>
-      </h3>
+    <div className="hero">
+      <p className="hero__top">
+        <span className="hero__span">Actually</span> Not That Bad
+      </p>
     </div>
   );
 };
