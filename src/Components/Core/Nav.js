@@ -2,7 +2,6 @@ import logo from "../../images/logo.svg";
 import { Link } from "react-router-dom";
 import "./Nav.css"
 
-
 const Navbar = () => {
   return (
     <nav className="navbar">
