@@ -1,7 +1,7 @@
 import Rating from './Rating';
 import ReviewCard from './ReviewCard';
 
-const SocialProof = (beerData) => {
+const SocialProof = ({beerData}) => {
 
   return (
     <>
