@@ -1,12 +1,12 @@
 import Rating from './Rating';
 import ReviewCard from './ReviewCard';
 
-const SocialProof = () => {
+const SocialProof = (beerData) => {
 
   return (
     <>
-      <Rating />
-      <ReviewCard />
+      <Rating beerData={beerData} />
+      <ReviewCard beerData={beerData} />
     </>
   )
 
