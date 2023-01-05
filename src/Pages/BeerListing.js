@@ -1,6 +1,7 @@
 import BeerCardExpanded from "../Components/Beer/BeerCardExpanded";
 import BeerInfo from "../Components/Beer/BeerInfo";
 import SocialProof from "../Components/SocialProof/SocialProof";
+import PrimaryButton from "../Components/Core/PrimaryButton";
 import "./BeerListing.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -24,6 +25,7 @@ const BeerListing = () => {
         <BeerCardExpanded beerData={beerData} />
         <BeerInfo beerData={beerData} />
         <SocialProof beerData={beerData} />
+        <PrimaryButton beerData={beerData} />
       </div>
     </>
   );
