@@ -38,6 +38,10 @@
   gap: 5px;
 }
 
+.rating__score {
+  font-weight: bold;
+}
+
 .review__author {
   color: #1E6A9C;
   font-weight: 700;

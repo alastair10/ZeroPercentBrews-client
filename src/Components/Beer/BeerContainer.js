@@ -5,6 +5,8 @@ const BeerContainer = () => {
   return (
     <div className={styles.beer_container}>
       <BeerCard />
+      <BeerCard />
+      <BeerCard />
     </div>
   );
 };
