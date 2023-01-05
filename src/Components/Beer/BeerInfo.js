@@ -1,7 +1,7 @@
 const BeerInfo = (props) => {
   return (
     <>
-      <h2 className="info__header">About {props.beerData.title}</h2>
+      {props.beerData && (<><h2 className="info__header">About {props.beerData.title}</h2>
       <div className="info__item">
         <span className="attribute">Brand:</span> {props.beerData.brand}
       </div>
@@ -19,7 +19,8 @@ const BeerInfo = (props) => {
         <span className="attribute">Volume:</span> {props.beerData.volume}ml
       </div>
     </>
-  );
+    
+  )}</>);
 };
 
 export default BeerInfo;

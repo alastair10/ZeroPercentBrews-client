@@ -1,7 +1,12 @@
 import star from '../../images/star.svg';
 import './Rating.css';
 
-const Rating = () => {
+const Rating = (props) => {
+
+const generateStars = (value) => {
+
+  return [...Array(value)].map((e, i) => <img src={star} className='rating__star' alt='star__icon' key={i}/>)
+}
 
   return (
     <>
@@ -9,11 +14,8 @@ const Rating = () => {
 
       <div className='ratings__container'>
         <div className='rating__item'>
-          <img src={star} className='rating__star' alt='star__icon'/>
-          <img src={star} className='rating__star' alt='star__icon'/>
-          <img src={star} className='rating__star' alt='star__icon'/>
-          <img src={star} className='rating__star' alt='star__icon'/>
-          <img src={star} className='rating__star' alt='star__icon'/>
+        {generateStars(props.beerData.overall)}
+
           <div className='rating__name'>Overall</div>
         </div>
         <div className='rating__item'>
