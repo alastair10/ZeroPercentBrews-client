@@ -1,9 +1,10 @@
+import Navbar from './Components/Core/Nav';
+
 function App() {
   return (
-    <>
-      <div>REPLACE WITH NAV</div>
-      <div>REPLACE WITH FOOTER</div>
-    </>
+    <div className="App">
+     <Navbar/>
+    </div> 
   );
 }
 
