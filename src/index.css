@@ -42,7 +42,7 @@ Global Styles
 ***************************/
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: #474747;
   background-color: #ffffff;
 }
@@ -52,7 +52,3 @@ body {
   display: flex;
   flex-direction: column;
 }
-
-
-
-

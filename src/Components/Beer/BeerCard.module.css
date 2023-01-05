@@ -1,18 +1,17 @@
-.beer__title {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 54px;
-  text-align: center;
-  color: #1E6A9C;
-}
-
 .beer__card__container {
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding: 30px;
   gap: 20px;
+  width: 440px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.08);
+}
+
+.beer__title {
+  text-align: center;
+  margin: 0;
 }
 
 .beer__basic__info {
@@ -36,15 +35,26 @@
 .rating {
   display: flex;
   gap: 5px;
+  align-items: center;
 }
 
 .rating__score {
   font-weight: bold;
 }
 
+.rating__star {
+  display: block;
+  height: 1rem;
+  margin-bottom: 5px;
+}
+
 .review__author {
-  color: #1E6A9C;
+  color: #1e6a9c;
   font-weight: 700;
   margin: 10px 0;
   text-align: right;
+}
+
+.attribute {
+  font-weight: bold;
 }
