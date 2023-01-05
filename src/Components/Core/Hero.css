@@ -1,0 +1,19 @@
+.hero {
+  display: flex;
+  font-weight: bold;
+  font-size: 2.25rem;
+  justify-content: center;
+  
+  color: #F26323
+  
+}
+
+.hero__span{
+  color: #1E6A9C;
+  font-style: italic;
+}
+
+.hero__top{
+  max-width: 300px;
+  text-align: center;
+}

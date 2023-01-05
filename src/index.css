@@ -54,27 +54,5 @@ body {
 }
 
 
-.navbar {
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  max-width: 600px;
-  margin: 0 auto;
-  border-bottom: 1px solid #f2f2f2;
-  
-}
 
-.navbar .links {
-  margin-left: auto;
-  
-}
-
-.navbar a {
-  margin-left: 16px;
-  text-decoration: none;
-}
-
-/* .navbar a:hover{  nice to have - signin/login turn orange hovered over
-  color: #F26323
-} */
 
