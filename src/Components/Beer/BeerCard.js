@@ -32,8 +32,7 @@ const BeerCard = ({ beerInfo }) => {
             <span className={styles.attribute}>Calories:</span>{' '}
             {beerInfo.calories} kcal
           </div>
-          
-          <PrimeButton />
+          <PrimeButton id={beerInfo._id} />
           
         </div>
       </div>
