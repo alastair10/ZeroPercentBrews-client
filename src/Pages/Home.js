@@ -1,10 +1,11 @@
-import Hero from "../Components/Core/Hero";
+import BeerContainer from '../Components/Beer/BeerContainer';
+import Hero from '../Components/Core/Hero';
 
 const Home = () => {
   return (
     <>
       <Hero />
-      <div>Placeholder</div>
+      <BeerContainer />
     </>
   );
 };
