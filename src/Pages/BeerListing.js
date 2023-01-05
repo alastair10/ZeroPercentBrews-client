@@ -14,18 +14,16 @@ const BeerListing = () => {
     fetch(`https://zero-percent-brews-api.onrender.com/api/beers/${id}`)
       .then((response) => response.json())
       .then((data) => {
-        setBeerData(data)
+        setBeerData(data);
       });
   }, [id]);
-
-  console.log(beerData);
 
   return (
     <>
       <div className="beer__listing__container">
-        <BeerCardExpanded />
-        <BeerInfo beerData={beerData}/>
-        <SocialProof />
+        <BeerCardExpanded beerData={beerData} />
+        <BeerInfo beerData={beerData} />
+        <SocialProof beerData={beerData} />
       </div>
     </>
   );
