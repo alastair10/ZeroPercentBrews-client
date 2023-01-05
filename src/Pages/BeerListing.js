@@ -1,10 +1,18 @@
+import BeerCardExpanded from "../Components/Beer/BeerCardExpanded";
+import BeerInfo from "../Components/Beer/BeerInfo";
+import SocialProof from "../Components/SocialProof/SocialProof";
+import "./BeerListing.css"
+
 const BeerListing = () => {
+
   return (
-    <div>
-      <div>PLACEHOLDER FOR BEERCARDEXPANDED</div>
-      <div>PLACEHOLDER FOR BEERINFO</div>
-      <div>PLACEHOLDER FOR SOCIALPROOF</div>
-    </div>
+    <>
+      <div className='beer__listing__container'>
+        <BeerCardExpanded />
+        <BeerInfo />
+        <SocialProof />
+      </div>
+    </>
   );
 
 };

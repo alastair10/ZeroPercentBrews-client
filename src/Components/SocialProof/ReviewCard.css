@@ -1,0 +1,25 @@
+.review__info {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #E7E6EB;
+  box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  margin: 10px;
+  padding: 0 20px 20px;
+}
+
+.review__header {
+  display: flex;
+  gap: 10px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.review__title {
+  color: #F26323;
+  flex-shrink: 1;
+}

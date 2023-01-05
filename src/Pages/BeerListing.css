@@ -1,0 +1,13 @@
+.beer__listing__container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 50px 5px;
+  max-width: 500px;
+  align-self: center;
+  padding: 25px;
+}
+
+.attribute {
+  font-weight: bold;
+}
