@@ -1,0 +1,14 @@
+.link a {
+  color: white;
+  position: absolute;
+   
+  left:167px;
+   
+  text-decoration: none;
+  border-radius: 8px;
+  
+  padding: 6px 23.5px ;
+  display: flex;
+  background-color: #f26323;
+  width: 3.25cm; 
+}
