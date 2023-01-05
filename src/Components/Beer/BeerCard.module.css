@@ -5,8 +5,9 @@
   padding: 30px;
   gap: 20px;
   width: 440px;
-  border-radius: 8px;
-  box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.08);
+  border: var(--border-shadow);
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
 }
 
 .beer__title {
@@ -25,10 +26,9 @@
 .social__proof {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
   align-items: center;
-  font-size: 16px;
   justify-content: space-between;
+  gap: 5px;
   max-width: 200px;
 }
 
@@ -43,16 +43,25 @@
 }
 
 .rating__star {
-  display: block;
-  height: 1rem;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
 }
 
 .review__author {
-  color: #1e6a9c;
+  color: var(--blue);
   font-weight: 700;
   margin: 10px 0;
   text-align: right;
+}
+
+.reviews__info:link,
+.reviews__info:visited {
+  color: var(--blue);
+  transition: 0.5s;
+}
+
+.reviews__info:hover,
+.reviews__info:active {
+  color: var(--orange);
 }
 
 .attribute {

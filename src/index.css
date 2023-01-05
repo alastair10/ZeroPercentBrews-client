@@ -1,4 +1,17 @@
 /***************************
+Root Variables
+***************************/
+:root {
+  --orange: #f26323;
+  --blue: #1e6a9c;
+  --border-radius: 20px;
+  --text-light: #474747;
+  --white: #ffffff;
+  --border-shadow: 1px solid #e7e6eb;
+  --box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.08);
+}
+
+/***************************
 Resets
 ***************************/
 *,
@@ -43,8 +56,8 @@ Global Styles
 
 body {
   font-family: 'Poppins', sans-serif;
-  color: #474747;
-  background-color: #ffffff;
+  color: var(--text-light);
+  background-color: var(--white);
 }
 
 #root {
