@@ -1,12 +1,20 @@
 import Rating from './Rating';
 import ReviewCard from './ReviewCard';
 
-const SocialProof = () => {
+const SocialProof = (props) => {
 
   return (
     <>
-      <Rating />
-      <ReviewCard />
+      {props.beerData && (<>
+        <Rating beerData={props.beerData} />
+
+        {props.beerData.reviews.map((review) => {
+          return <ReviewCard author={review.author} key={review.author} body={review.body} />
+        })}
+
+      </>)}
+
+
     </>
   )
 
