@@ -11,12 +11,12 @@ const BeerListing = () => {
   const [beerData, setBeerData] = useState();
 
   useEffect(() => {
-    fetch(`http://localhost:4000/api/beers/${id}`)
+    fetch(`https://zero-percent-brews-api.onrender.com/api/beers/${id}`)
       .then((response) => response.json())
       .then((data) => {
         setBeerData(data)
       });
-  }, []);
+  }, [id]);
 
   console.log(beerData);
 
@@ -24,7 +24,7 @@ const BeerListing = () => {
     <>
       <div className="beer__listing__container">
         <BeerCardExpanded />
-        <BeerInfo />
+        <BeerInfo beerData={beerData}/>
         <SocialProof />
       </div>
     </>
