@@ -11,7 +11,9 @@ const BeerCard = ({ beerInfo }) => {
           <h3 className={styles.beer__title}>{beerInfo.title}</h3>
           <div className={styles.social__proof}>
             <div className={styles.rating}>
-              <div className={styles.rating__score}>{beerInfo.overall}</div>
+              <div className={styles.rating__score}>
+                {beerInfo.rating.overall}
+              </div>
               <img
                 src={star}
                 className={styles.rating__star}
@@ -19,7 +21,7 @@ const BeerCard = ({ beerInfo }) => {
               />
             </div>
             <a className={styles.reviews__info} href='#reviews'>
-              {beerInfo.reviewCount} Reviews
+              {beerInfo.reviews.length} Reviews
             </a>
           </div>
           <div className={styles.basic__info__item}>
