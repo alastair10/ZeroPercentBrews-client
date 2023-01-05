@@ -3,17 +3,18 @@ import BeerListing from './Pages/BeerListing';
 import Home from './Pages/Home'
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './Components/Core/Nav'
-import Hero from './Components/Core/Hero'
+import Footer from './Components/Core/Footer'
+
 
 function App() {
   return (
     <>
     <Navbar />
-     <Hero />
-      <Routes>
+     <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/beer/:id" element={<BeerListing />} />
       </Routes>
+      <Footer />
     </>
 
 

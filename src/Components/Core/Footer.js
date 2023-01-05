@@ -1,9 +1,11 @@
-const footer = () => {
-  return ( 
+import footer from "../../images/footer.svg";
+
+const Footer = () => {
+  return (
     <div>
-      <img src="./download.jpg" alt="svg logo" />
+      <img src={footer} alt="svg logo" />
     </div>
-   );
-}
- 
-export default footer;
+  );
+};
+
+export default Footer;
