@@ -1,10 +1,8 @@
 import star from '../../images/star.svg';
-// import beerImage from '../../images/beer_placeholder.png';
 import styles from './BeerCard.module.css';
 import ButtonPrimary from '../Core/ButtonPrimary';
 
 const BeerCard = ({ beerInfo }) => {
-
   return (
     <div className={styles.beer}>
       <div className={styles.beer__card__container}>
@@ -33,8 +31,7 @@ const BeerCard = ({ beerInfo }) => {
             <span className={styles.attribute}>Calories:</span>{' '}
             {beerInfo.calories} kcal
           </div>
-          <ButtonPrimary path={`/beer/${beerInfo._id}`} text={"More Info"} />
-          
+          <ButtonPrimary path={`/beer/${beerInfo._id}`} text={'More Info'} />
         </div>
       </div>
     </div>
@@ -42,5 +39,3 @@ const BeerCard = ({ beerInfo }) => {
 };
 
 export default BeerCard;
-
-
