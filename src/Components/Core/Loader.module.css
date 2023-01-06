@@ -1,0 +1,34 @@
+.loader {
+	font-family: "Poppins", sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+}
+
+.loader__beer {
+	width: 48px;
+	height: 68px;
+	display: inline-block;
+	position: relative;
+	color: #f26323;
+	border: 1px solid #d9d9d9;
+	box-sizing: border-box;
+	animation: fill 5s ease-in-out infinite forwards;
+}
+
+.loader__text {
+	color: #1e6a9c;
+	font-weight: bold;
+	font-size: 2rem;
+}
+
+@keyframes fill {
+	0% {
+		box-shadow: 0 0 inset;
+	}
+
+	100% {
+		box-shadow: 0 -60px inset;
+	}
+}
