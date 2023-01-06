@@ -6,14 +6,14 @@ const Register = ({navigate}) => {
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    setUserData(values => ({...values, [name]: value}))
+    setUserData(prevUserData => ({...prevUserData, [name]: value}))
   }
   
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     console.log("You submitted info");
     event.preventDefault();
 
-    fetch('/users', {
+    fetch('/api/user/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
