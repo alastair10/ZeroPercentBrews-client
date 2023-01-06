@@ -7,10 +7,10 @@ const Home = () => {
   const [beerData, setBeerData] = useState();
 
   useEffect(() => {
-    fetch(`https://zero-percent-brews-api.onrender.com/api/beers/api/beers/`)
+    fetch(`https://zero-percent-brews-api.onrender.com/api/beers/`)
       .then((response) => response.json())
       .then((data) => {
-        setTimeout(() => setBeerData(data), 3000);
+        setTimeout(() => setBeerData(data), 2000);
       });
   }, []);
 
