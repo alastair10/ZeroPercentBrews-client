@@ -10,9 +10,9 @@ const Register = ({ navigate }) => {
   };
 
   const handleSubmit = async (event) => {
-    console.log("You submitted info");
     event.preventDefault();
 
+    // update with Render address after deployment
     fetch("/api/user/register", {
       method: "POST",
       headers: {
@@ -35,7 +35,7 @@ const Register = ({ navigate }) => {
       <label>
         Username
         <input
-          placeholder="e.g. BeerMaster4000"
+          placeholder="e.g. ZeroAficionado"
           type="text"
           name="username"
           value={userData.username}
@@ -46,7 +46,7 @@ const Register = ({ navigate }) => {
       <label>
         Email
         <input
-          placeholder="e.g. name@address.com"
+          placeholder="e.g. name@example.com"
           type="email"
           name="email"
           value={userData.email}
@@ -66,7 +66,7 @@ const Register = ({ navigate }) => {
       </label>
       <br />
       <input
-        className="sign-up-form-submit"
+        className="register-form-submit"
         name="submit"
         type="submit"
         value="Sign Up"
