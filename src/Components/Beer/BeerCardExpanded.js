@@ -1,5 +1,5 @@
 import star from '../../images/star.svg';
-import beerImage from '../../images/beer_placeholder.png';
+
 import './BeerCardExpanded.css';
 
 const BeerCardExpanded = (props) => {
@@ -9,7 +9,7 @@ const BeerCardExpanded = (props) => {
         <>
           <h1 className='beer__title'>{props.beerData.title}</h1>
           <div className='beer__card__container'>
-            <img className='beer__image' src={beerImage} alt='' />
+            <img className='beer__image' src={props.beerData.image} alt='' />
             <div className='beer__basic__info'>
               <div className='social__proof'>
                 <div className='rating'>
