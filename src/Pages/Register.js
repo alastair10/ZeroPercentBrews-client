@@ -1,71 +1,78 @@
-import { useState } from 'react'; 
+import { useState } from "react";
 
-const Register = ({navigate}) => {
+const Register = ({ navigate }) => {
   const [userData, setUserData] = useState({});
 
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    setUserData(prevUserData => ({...prevUserData, [name]: value}))
-  }
-  
+    setUserData((prevUserData) => ({ ...prevUserData, [name]: value }));
+  };
+
   const handleSubmit = async (event) => {
     console.log("You submitted info");
     event.preventDefault();
 
-    fetch('/api/user/register', {
-      method: 'POST',
+    fetch("/api/user/register", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        userData: userData
+        userData: userData,
       }),
     }).then((response) => {
       if (response.status === 201) {
-        // Opportunity to call a register hook that stores JWT and logs user in automatically
-        navigate('/login');
+        navigate("/login");
       } else {
-        navigate('/register');
+        navigate("/register");
       }
     });
-  }
-  
-  return ( 
+  };
+
+  return (
     <form onSubmit={handleSubmit}>
-      <label>Username
-      <input
-          placeholder='e.g. BeerMaster4000'
-          type='text'
-          name='username'
+      <label>
+        Username
+        <input
+          placeholder="e.g. BeerMaster4000"
+          type="text"
+          name="username"
           value={userData.username}
           onChange={handleChange}
         />
       </label>
-      <br/>
-      <label>Email
-      <input
-          placeholder='e.g. name@address.com'
-          type='email'
-          name='email'
+      <br />
+      <label>
+        Email
+        <input
+          placeholder="e.g. name@address.com"
+          type="email"
+          name="email"
           value={userData.email}
           onChange={handleChange}
         />
       </label>
-      <br/>
-      <label>Password
-      <input
-          placeholder='make a secure password'
-          type='password'
-          name='password'
+      <br />
+      <label>
+        Password
+        <input
+          placeholder="make a secure password"
+          type="password"
+          name="password"
           value={userData.password}
           onChange={handleChange}
         />
       </label>
-      <br/>
-      <input className="sign-up-form-submit" name="submit" type="submit" value="Sign Up" />
+      <br />
+      <input
+        className="sign-up-form-submit"
+        name="submit"
+        type="submit"
+        value="Sign Up"
+      />
     </form>
   );
-}
- 
+};
+
 export default Register;
