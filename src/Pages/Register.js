@@ -13,7 +13,7 @@ const Register = ({ navigate }) => {
     event.preventDefault();
 
     // update with Render address after deployment
-    fetch("/api/user/register", {
+    fetch("https://zero-percent-brews-api.onrender.com/api/user/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
