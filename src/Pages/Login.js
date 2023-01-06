@@ -1,28 +1,44 @@
 import { useState } from "react";
 
-const Register = ({ navigate }) => {
+const Login = ({ navigate }) => {
+  const [userData, setUserData] = useState({});
+ 
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setUserData((prevUserData) => ({ ...prevUserData, [name]: value }));
+  };
 
-}
 
 const handleSubmit = async (event) => {
   event.preventDefault();
 
   // update with Render address after deployment
-  fetch("/api/user/login", {
+  let response = fetch("/api/user/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
       userData: userData,
-    }),
- }).then((response) => {
+    })
+  })
+ 
   if (response.status !== 201) {
     navigate("/login");
   } else {
   
- })
+      let data = await response.json();
+
+// Stores token and user_id in users local storage (if app is refreshed token is still accessible)
+      window.localStorage.setItem('token', data.token);
+      window.localStorage.setItem('user_id', data.user_id);
+      navigate('/');
+    }
   }
+  
+ 
+
  
   return ( 
     <form onSubmit={handleSubmit}>
@@ -33,7 +49,7 @@ const handleSubmit = async (event) => {
         type="email"
         name="email"
         value={userData.email}
-        onChange{handleChange}
+        onChange={handleChange}
         />
       </label>
        <br />
@@ -49,6 +65,6 @@ const handleSubmit = async (event) => {
 </label>
       </form>
    );
-};
- 
-export default ;
+  }
+
+export default Login;
