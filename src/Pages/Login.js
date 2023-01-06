@@ -21,7 +21,7 @@ const Login = () => {
     event.preventDefault();
 
     fetch(
-      "http://localhost:4000/api/user/login",
+      "https://zero-percent-brews-api.onrender.com/api/user/login",
       {
         method: "POST",
         headers: {
