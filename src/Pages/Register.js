@@ -1,28 +1,40 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Register = ({ navigate }) => {
-  const [userData, setUserData] = useState({});
+const Register = () => {
+  const [userData, setUserData] = useState(
+    {
+      username: "",
+      email: "",
+      password: ""
+    });
+  
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    setUserData((prevUserData) => ({ ...prevUserData, [name]: value }));
-  };
+    const {name, value} = event.target;
 
+    setUserData((prevUserData) => ({
+      ...prevUserData,
+      [name]: value 
+    }));
+  };
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // update with Render address after deployment
-    fetch("https://zero-percent-brews-api.onrender.com/api/user/register", {
+    fetch("http://localhost:4000/api/user/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        userData: userData,
+        email: userData.email,
+        username: userData.username,
+        password: userData.password
       }),
     }).then((response) => {
-      if (response.status === 201) {
+      if (response.status === 200) {
         navigate("/login");
       } else {
         navigate("/register");
@@ -35,7 +47,6 @@ const Register = ({ navigate }) => {
       <label>
         Username
         <input
-          placeholder="e.g. ZeroAficionado"
           type="text"
           name="username"
           value={userData.username}
@@ -46,7 +57,6 @@ const Register = ({ navigate }) => {
       <label>
         Email
         <input
-          placeholder="e.g. name@example.com"
           type="email"
           name="email"
           value={userData.email}
@@ -57,7 +67,6 @@ const Register = ({ navigate }) => {
       <label>
         Password
         <input
-          placeholder="make a secure password"
           type="password"
           name="password"
           value={userData.password}
