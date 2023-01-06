@@ -3,7 +3,6 @@ import styles from './BeerCard.module.css';
 import ButtonPrimary from '../Core/ButtonPrimary';
 
 const BeerCard = ({ beerInfo }) => {
-  console.log(beerInfo);
   return (
     <div className={styles.beer}>
       <div className={styles.beer__card__container}>
