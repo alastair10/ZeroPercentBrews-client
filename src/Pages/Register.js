@@ -8,18 +8,18 @@ const Register = () => {
       email: "",
       password: ""
     });
-  
+
   const navigate = useNavigate();
 
   const handleChange = (event) => {
-    const {name, value} = event.target;
+    const { name, value } = event.target;
 
     setUserData((prevUserData) => ({
       ...prevUserData,
-      [name]: value 
+      [name]: value
     }));
   };
-  
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 

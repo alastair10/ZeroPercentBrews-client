@@ -10,10 +10,10 @@ const Login = () => {
   );
   const navigate = useNavigate();
   const handleChange = (event) => {
-    const {name, value} = event.target;
-    setUserData((prevUserData) => ({ 
-        ...prevUserData, 
-        [name]: value 
+    const { name, value } = event.target;
+    setUserData((prevUserData) => ({
+      ...prevUserData,
+      [name]: value
     }));
   };
 
