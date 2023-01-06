@@ -23,7 +23,6 @@ const BeerListing = () => {
       <BeerCardExpanded beerData={beerData} />
       <BeerInfo beerData={beerData} />
       <SocialProof beerData={beerData} />
-      <ButtonPrimary path={`/beer/${id}`} text={'More Info'} />
     </div>
   );
 };
