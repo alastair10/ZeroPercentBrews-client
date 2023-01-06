@@ -34,7 +34,7 @@ const BeerCard = ({ beerInfo }) => {
             <span className={styles.attribute}>Calories:</span>{' '}
             {beerInfo.calories} kcal
           </div>
-          <ButtonPrimary id={beerInfo._id} text={"More Info"} />
+          <ButtonPrimary path={`/beer/${beerInfo._id}`} text={"More Info"} />
           
         </div>
       </div>
