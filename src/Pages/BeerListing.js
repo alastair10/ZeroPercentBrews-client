@@ -1,7 +1,6 @@
 import BeerCardExpanded from '../Components/Beer/BeerCardExpanded';
 import BeerInfo from '../Components/Beer/BeerInfo';
 import SocialProof from '../Components/SocialProof/SocialProof';
-import ButtonPrimary from '../Components/Core/ButtonPrimary';
 import './BeerListing.css';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
