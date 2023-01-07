@@ -11,10 +11,14 @@
 
 .beer__title {
   margin: 0;
+  max-height: 64px;
+  overflow: hidden;
 }
 
 .beer__image {
-  object-fit: fill;
+  object-fit: cover;
+  object-position: 50% 50%;
+  width: 100%;
 }
 
 .info__container {
