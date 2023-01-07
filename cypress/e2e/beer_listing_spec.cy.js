@@ -3,6 +3,10 @@ describe('Selects beer from home page', () => {
     cy.visit('https://www.zeropercentbrews.com/')
   })
   
+  it("loads the hero", () => {
+    cy.get('.hero__span').should('contain', 'Actually')
+  })
+  
   it("clicks through to an individual beer listing", () => {
     cy.get('.BeerCard_beer__title__poRa4')
     cy.get('.ButtonPrimary_button__MIZnn').contains("More Info").click()
