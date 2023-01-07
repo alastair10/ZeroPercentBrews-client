@@ -1,49 +1,58 @@
-.beer__card__container {
+.beer {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 30px;
+  flex-direction: column;
   gap: 20px;
-  width: 440px;
+  width: 100%;
+  margin: 0 5px;
   border: var(--border-shadow);
   box-shadow: var(--box-shadow);
   border-radius: var(--border-radius);
 }
 
 .beer__title {
-  text-align: center;
   margin: 0;
+}
+
+.beer__image {
+  object-fit: fill;
+}
+
+.info__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.info__container a:last-of-type {
+  align-self: center;
 }
 
 .beer__basic__info {
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
-  width: 100%;
   gap: 10px;
-  padding: 10px 0;
+  margin-bottom: 10px;
 }
 
 .social__proof {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
   justify-content: space-between;
-  gap: 5px;
-  max-width: 200px;
 }
 
 .rating {
   display: flex;
-  gap: 5px;
   align-items: center;
+  gap: 5px;
 }
 
 .rating__score {
   font-weight: bold;
+  display: block;
 }
 
 .rating__star {
+  display: block;
   margin-bottom: 3px;
 }
 
@@ -67,4 +76,11 @@
 
 .attribute {
   font-weight: bold;
+}
+
+@media only screen and (min-width: 425px) {
+  .beer {
+    flex-direction: row;
+    padding: 30px;
+  }
 }
