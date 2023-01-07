@@ -1,6 +1,8 @@
 import logo from '../../images/primary-logo.svg';
 import { Link } from 'react-router-dom';
 import './Nav.css';
+import ButtonTertiary from './ButtonTertiary';
+import ButtonSecondary from './ButtonSecondary';
 
 const Navbar = () => {
   return (
@@ -10,8 +12,8 @@ const Navbar = () => {
           <img className='nav__logo' src={logo} alt='svg logo' />
         </Link>
         <div className='nav__buttons'>
-          <div className='signin'>SIGNIN</div>
-          <div className='signup'>SIGNUP</div>
+          <ButtonTertiary path={'/login'} text={'Log In'} />
+          <ButtonSecondary path={'/register'} text={'Sign Up'} />
         </div>
       </div>
     </nav>
