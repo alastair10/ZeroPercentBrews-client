@@ -1,7 +1,7 @@
 import styles from './ButtonTertiary.module.css';
 import { Link } from 'react-router-dom';
 
-const ButtonPrimary = ({path, text}) => {
+const ButtonTertiary = ({path, text}) => {
   return (
     <Link className={styles.button} to={path}>
       {text}
@@ -9,4 +9,4 @@ const ButtonPrimary = ({path, text}) => {
   );
 };
 
-export default ButtonPrimary;
+export default ButtonTertiary;
