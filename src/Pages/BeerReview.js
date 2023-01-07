@@ -1,13 +1,15 @@
 import { useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styles from '../Components/Core/ButtonPrimary.module.css';
-
+import SocialProof from '../Components/SocialProof/SocialProof';
 
 const BeerReview = () => {
   const navigate = useNavigate();
   const [error, setError] = useState(undefined);
   const [commentBody, setCommentBody] = useState("");
-  const { id } = useParams();
+  // const { id } = useParams();
+  const userId = window.localStorage.getItem("userId");
+  const token = window.localStorage.getItem("token");
 
   const handleChange = (e) => {
     setCommentBody(e.target.value)
@@ -17,14 +19,16 @@ const BeerReview = () => {
     e.preventDefault();
 
     fetch(
-      `https://zero-percent-brews-api.onrender.com/beer/${id}/review`,
+      //`https://zero-percent-brews-api.onrender.com/api/beers/{beer_id}/reviews`
+      `http://localhost:4000/api/beers/{beer_id}/reviews`,
       {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
-          // userId: params.id,
+          user_id: userId,
           review: {
             body: commentBody
           },
@@ -47,6 +51,9 @@ const BeerReview = () => {
 
   return (
     <>
+      <div className='beer__listing__container'>
+        <SocialProof />
+      </div>
       <div className="hero">
         <p className="hero__top">
           <span className="hero__span">Have your say on</span> {}

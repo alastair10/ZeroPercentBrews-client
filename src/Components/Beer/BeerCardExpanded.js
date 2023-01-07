@@ -1,6 +1,6 @@
 import star from '../../images/star.svg';
-
 import './BeerCardExpanded.css';
+import ButtonPrimary from '../Core/ButtonPrimary';
 
 const BeerCardExpanded = (props) => {
   return (
@@ -33,6 +33,7 @@ const BeerCardExpanded = (props) => {
               <div className='basic__info__desc'>
                 {props.beerData.description}
               </div>
+              <ButtonPrimary path={`/beer/${props.beerData.id}/review`} text={'Add Review'} />
             </div>
           </div>
         </>
