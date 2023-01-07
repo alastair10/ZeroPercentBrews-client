@@ -19,6 +19,7 @@
 
 .nav__logo {
   width: 36px;
+  /* width: 147px; */
   height: 17px;
   display: block;
   object-fit: cover;
@@ -46,7 +47,7 @@
   display: flex;
   flex-direction: row;
   /* remove this line when adding buttons */
-  display: none;
+  /* display: none; */
   gap: 8px;
   border: 1px solid green;
 }

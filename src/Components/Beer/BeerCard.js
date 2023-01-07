@@ -5,13 +5,13 @@ import ButtonPrimary from '../Core/ButtonPrimary';
 const BeerCard = ({ beerInfo }) => {
   return (
     <div className={styles.beer}>
-      <div className={styles.beer__card__container}>
-        <img
-          className={styles.beer__image}
-          src={beerInfo.image}
-          alt=''
-          loading='lazy'
-        />
+      <img
+        className={styles.beer__image}
+        src={beerInfo.image}
+        alt='beer'
+        loading='lazy'
+      />
+      <div className={styles.info__container}>
         <div className={styles.beer__basic__info}>
           <h3 className={styles.beer__title}>{beerInfo.title}</h3>
           <div className={styles.social__proof}>
@@ -30,6 +30,7 @@ const BeerCard = ({ beerInfo }) => {
               {beerInfo.reviews.length} Reviews
             </a>
           </div>
+
           <div className={styles.basic__info__item}>
             <span className={styles.attribute}>From:</span> {beerInfo.country}
           </div>
@@ -37,8 +38,8 @@ const BeerCard = ({ beerInfo }) => {
             <span className={styles.attribute}>Calories:</span>{' '}
             {beerInfo.calories} kcal
           </div>
-          <ButtonPrimary path={`/beer/${beerInfo._id}`} text={'More Info'} />
         </div>
+        <ButtonPrimary path={`/beer/${beerInfo._id}`} text={'More Info'} />
       </div>
     </div>
   );
