@@ -1,6 +1,6 @@
 import "./Hero.css";
 
-const hero = () => {
+const Hero = () => {
   return (
     <div className="hero">
       <p className="hero__top">
@@ -10,4 +10,4 @@ const hero = () => {
   );
 };
 
-export default hero;
+export default Hero;
