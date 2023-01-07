@@ -33,7 +33,7 @@ const BeerCardExpanded = (props) => {
               <div className='basic__info__desc'>
                 {props.beerData.description}
               </div>
-              <ButtonPrimary path={`/beer/${props.beerData.id}/review`} text={'Add Review'} />
+              <ButtonPrimary path={`/beer/${props.beerData._id}/review`} text={'Add Review'} />
             </div>
           </div>
         </>
