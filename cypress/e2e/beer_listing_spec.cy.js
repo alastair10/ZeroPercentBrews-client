@@ -1,5 +1,6 @@
 describe('Selects beer from home page', () => {
   beforeEach(() => {
+    // change link to localhost:3000 once functional
     cy.visit('https://www.zeropercentbrews.com/')
   })
   
