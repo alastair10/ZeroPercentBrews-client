@@ -45,8 +45,5 @@
 .nav__buttons {
   display: flex;
   flex-direction: row;
-  /* remove this line when adding buttons */
-  display: none;
-  gap: 8px;
-  border: 1px solid green;
+  gap: 15px;
 }

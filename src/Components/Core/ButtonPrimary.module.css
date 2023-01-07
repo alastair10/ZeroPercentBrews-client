@@ -2,7 +2,7 @@
   text-decoration: none;
   display: flex;
   justify-content: center;
-  width: 200px;
+  min-width: 122px;
   color: var(--white);
   border-radius: 8px;
   padding: 6px 26px;
