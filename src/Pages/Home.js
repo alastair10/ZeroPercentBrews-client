@@ -10,7 +10,9 @@ const Home = () => {
     fetch(`https://zero-percent-brews-api.onrender.com/api/beers`)
       .then((response) => response.json())
       .then((data) => {
-        setTimeout(() => setBeerData(data), 2000);
+        setTimeout(() => setBeerData(data.sort((a, b) => {
+          return b.reviews.length - a.reviews.length
+        })), 2000);
       });
   }, []);
 
