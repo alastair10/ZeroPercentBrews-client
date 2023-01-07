@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./Nav.css";
 import ButtonTertiary from "./ButtonTertiary";
 import ButtonSecondary from "./ButtonSecondary";
+import ButtonQuaternary from "./ButtonQuaternary";
 
 const Navbar = () => {
   return (
