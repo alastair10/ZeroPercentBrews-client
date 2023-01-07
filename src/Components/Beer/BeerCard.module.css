@@ -8,6 +8,7 @@
   border: var(--border-shadow);
   box-shadow: var(--box-shadow);
   border-radius: var(--border-radius);
+  max-width: 420px;
 }
 
 .beer__title {
@@ -28,6 +29,7 @@
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
+  height: 100%;
 }
 
 .info__container a:last-of-type {
@@ -89,6 +91,7 @@
     flex-direction: row;
     align-items: flex-start;
     margin: 0 5px;
+    width: 420px;
   }
 
   .beer__image {
