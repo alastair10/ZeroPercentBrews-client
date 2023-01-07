@@ -1,22 +1,52 @@
-.navbar {
+.nav {
+  width: 100%;
+}
+
+.nav__container {
   padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* max-width: 600px; */
-  width: 100%;
+  max-width: 800px;
   margin: 0 auto;
 }
-/* 
-.navbar__links {
+
+.nav__link--logo {
+  width: 147px;
+  height: 19px;
+  overflow: hidden;
+}
+
+.nav__logo {
+  width: 36px;
+  height: 17px;
+  display: block;
+  object-fit: cover;
+  object-position: 34% 0%;
+  transition: .8s;
+  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+@media only screen and (min-width: 425px) {
+  .nav__link--logo {
+    width: 147px;
+    height: 19px;
+  }
+
+  .nav__logo {
+    width: 147px;
+    height: 17px;
+    display: block;
+    object-fit: cover;
+    object-position: 0% 0%;
+  }
+}
+
+.nav__buttons {
+  display: flex;
+  flex-direction: row;
+  /* remove this line when adding buttons */
+  display: none;
+  gap: 8px;
   border: 1px solid green;
 }
-
-.navbar a {
-  margin-left: 16px;
-  text-decoration: none;
-}
-
-/* .navbar a:hover{  nice to have - signin/login turn orange hovered over
-  color: var(--orange);
-} */
