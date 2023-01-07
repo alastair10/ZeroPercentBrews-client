@@ -4,5 +4,6 @@
   justify-content: center;
   background-color: var(--blue);
   height: 65px;
+  width: 100%;
   align-items: center;
 }
