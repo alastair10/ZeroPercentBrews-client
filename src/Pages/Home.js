@@ -1,21 +1,23 @@
 import BeerContainer from '../Components/Beer/BeerContainer';
 import Loader from '../Components/Core/Loader';
 import Hero from '../Components/Core/Hero';
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
+const beerData = require('../tests/mockData');
+
 
 const Home = () => {
-  const [beerData, setBeerData] = useState();
+  // const [beerData, setBeerData] = useState(); 
+  // useEffect(() => {
+  //   fetch(`https://zero-percent-brews-api.onrender.com/api/beers`)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setTimeout(() => setBeerData(data.sort((a, b) => {
+  //         return b.reviews.length - a.reviews.length
+  //       })), 2000);
+  //     });
+  // }, []);
 
-  useEffect(() => {
-    fetch(`https://zero-percent-brews-api.onrender.com/api/beers`)
-      .then((response) => response.json())
-      .then((data) => {
-        setTimeout(() => setBeerData(data.sort((a, b) => {
-          return b.reviews.length - a.reviews.length
-        })), 2000);
-      });
-  }, []);
-
+  
   return (
     <>
       <Hero message_1={"Find and review,"} message_2={"hangover-free beers."} />
