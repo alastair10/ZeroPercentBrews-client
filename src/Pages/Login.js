@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import ButtonPrimary from "../Components/Core/ButtonPrimary";
 
 const Login = () => {
   const [userData, setUserData] = useState(
@@ -46,7 +47,7 @@ const Login = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form>
       <label>
         Email
         <input
@@ -67,12 +68,7 @@ const Login = () => {
         />
       </label>
       <br />
-      <input
-        className="register-form-submit"
-        name="login"
-        type="submit"
-        value="Log In"
-      />
+      <ButtonPrimary text={"Log In"} onClick={handleSubmit} />
     </form>
   );
 };
