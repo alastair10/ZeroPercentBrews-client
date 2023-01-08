@@ -62,7 +62,6 @@ const Login = () => {
               onChange={handleChange}
             />
           </label>
-          <br />
           <label>
             Password
             <input
@@ -72,7 +71,6 @@ const Login = () => {
               onChange={handleChange}
             />
           </label>
-          <br />
           <ButtonPrimary text={"Log In"} onClick={handleSubmit} />
         </form>
       </div>
