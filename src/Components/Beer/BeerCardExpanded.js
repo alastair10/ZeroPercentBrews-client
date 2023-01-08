@@ -17,7 +17,7 @@ const BeerCardExpanded = ({ beerData }) => {
                   <img src={star} className='rating__star' alt='star__icon' />
                 </div>
                 <a className='reviews__info' href='#reviews'>
-                  {beerData.comments.length} Reviews
+                  {beerData.comments.length} Comments
                 </a>
               </div>
               <div className='basic__info__item'>

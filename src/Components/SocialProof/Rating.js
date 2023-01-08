@@ -19,7 +19,7 @@ const Rating = ({ beerData }) => {
       {beerData && (
         <>
           <h2 className='review__count' id='reviews'>
-            {beerData.comments.length} Reviews
+            Z%B Team Rating:
           </h2>
 
           <div className='ratings__container'>
