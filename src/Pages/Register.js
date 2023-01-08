@@ -48,7 +48,7 @@ const Register = () => {
   return (
     <>
     <Hero message_1={"Join the lager"} message_2={"than life community"}/>
-      <form>
+      <form className={styles.log_reg_form}>
         <label>
           Username
           <input

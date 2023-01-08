@@ -51,7 +51,7 @@ const Login = () => {
   return (
     <>
       <Hero message_1={"Welcome back,"} message_2={"smooth hoperator"} />
-      <form>
+      <form className={styles.log_reg_form}>
         <label>
           Email
           <input
