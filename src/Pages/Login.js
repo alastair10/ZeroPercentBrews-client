@@ -39,7 +39,6 @@ const Login = () => {
       if (response.status === 200) {
         const data = response.json();
         window.localStorage.setItem("token", data.token);
-        window.localStorage.setItem("user_id", data.user_id);
         navigate("/");
       } else {
         navigate("/login");
