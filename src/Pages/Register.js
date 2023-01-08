@@ -26,7 +26,7 @@ const Register = ({ isLoggedIn, setIsLoggedIn }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    fetch("https://zero-percent-brews-api.onrender.com/api/user/register", {
+    let response = await fetch("https://zero-percent-brews-api.onrender.com/api/user/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -36,21 +36,23 @@ const Register = ({ isLoggedIn, setIsLoggedIn }) => {
         username: userData.username,
         password: userData.password
       }),
-    }).then((response) => {
-      if (response.status === 200) {
-        const data = response.json();
-        window.localStorage.setItem("token", data.token);
-        setIsLoggedIn(true);
-        navigate("/");
-      } else {
-        navigate("/register");
-      }
     });
+
+    if (response.status === 200) {
+      let data = await response.json();
+      setIsLoggedIn(data.token);
+      window.localStorage.setItem("token", data.token);
+      navigate("/");
+    } else {
+      navigate("/register");
+    }
+
+
   };
 
   return (
     <>
-    <Hero message_1={"Join the lager"} message_2={"than life community"}/>
+      <Hero message_1={"Join the lager"} message_2={"than life community"} />
       <form className={styles.log_reg_form}>
         <label>
           Username

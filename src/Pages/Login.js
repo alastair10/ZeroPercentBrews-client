@@ -5,7 +5,6 @@ import Hero from "../Components/Core/Hero";
 import styles from './Access.module.css';
 
 const Login = ({ isLoggedIn, setIsLoggedIn }) => {
-  console.log(isLoggedIn)
   const [userData, setUserData] = useState(
     {
       email: "",
@@ -13,6 +12,7 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
     }
   );
   const navigate = useNavigate();
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setUserData((prevUserData) => ({
@@ -24,7 +24,7 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    fetch(
+    let response = await fetch(
       "https://zero-percent-brews-api.onrender.com/api/user/login",
       {
         method: "POST",
@@ -35,17 +35,16 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
           email: userData.email,
           password: userData.password
         }),
-      }
-    ).then((response) => {
-      if (response.status === 200) {
-        const data = response.json();
-        window.localStorage.setItem("token", data.token);
-        setIsLoggedIn(true);
-        navigate("/");
-      } else {
-        navigate("/login");
-      }
-    });
+      });
+
+    if (response.status === 200) {
+      let data = await response.json();
+      setIsLoggedIn(data.token);
+      window.localStorage.setItem("token", data.token);
+      navigate("/");
+    } else {
+      navigate("/login");
+    };
 
   };
 

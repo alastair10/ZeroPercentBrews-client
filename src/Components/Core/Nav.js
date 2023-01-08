@@ -8,9 +8,9 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
   
   const handleLogOut = () => {
     window.localStorage.removeItem("token");
-    setIsLoggedIn(false);
+    setIsLoggedIn(null);
   }
-
+  
   return (
     <nav className='nav'>
       <div className='nav__container'>

@@ -8,7 +8,7 @@ import Register from "./Pages/Register";
 import Login from "./Pages/Login";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(window.localStorage.getItem("token"));
 
   return (
     <>
