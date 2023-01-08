@@ -18,7 +18,7 @@ const Home = () => {
 
   return (
     <>
-      <Hero />
+      <Hero message_1={"Find and review,"} message_2={"hangover-free beers."} />
       {beerData ? <BeerContainer beerData={beerData} /> : <Loader />}
     </>
   );
