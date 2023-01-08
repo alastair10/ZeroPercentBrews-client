@@ -8,8 +8,8 @@ const SocialProof = (props) => {
       {props.beerData && (<>
         <Rating beerData={props.beerData} />
 
-        {props.beerData.reviews.map((review) => {
-          return <ReviewCard author={review.author} key={review.author} body={review.body} />
+        {props.beerData.comments.map((comment) => {
+          return <ReviewCard author={comment.user_id.username} key={comment._id} body={comment.body} />
         })}
 
       </>)}
