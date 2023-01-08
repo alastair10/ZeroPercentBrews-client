@@ -93,7 +93,10 @@ const BeerReview = () => {
           <div className='rating__name'>Value</div>
         </div>
       </div>
-      
+
+      <h2 className='review__count' id='reviews'>
+          Review:
+      </h2>
 
       <form onSubmit={handleSubmit}>
         <input type="textarea" onChange={handleChange}></input>
