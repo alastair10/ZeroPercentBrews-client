@@ -2,22 +2,23 @@ import Rating from './Rating';
 import ReviewCard from './ReviewCard';
 import ButtonPrimary from '../Core/ButtonPrimary';
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 const SocialProof = (props) => {
 
-  // doesn't need to be set up like this, could just be the comment body that is store here if it is easier
-  const [comment, setComment] = useState(
-    {
-      user_id: "",
-      body: "",
-    }
-  );
+  const [error, setError] = useState(undefined);
+  const user_id = window.localStorage.getItem("user_id");
+  const token = window.localStorage.getItem("token");
+  const { id } = useParams();
+  const [commentBody, setCommentBody] = useState("");
 
-  const handleChange = () => {
+  const handleChange = (e) => {
     /// handle change to comment body
+    setCommentBody(e.target.value);
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     // API endpoint ..../api/beers/{id}/comments 
     
   // It needs thhe below in the request body:
@@ -27,6 +28,30 @@ const SocialProof = (props) => {
   //         "body": String 
   //     }
   // }
+  // `http://localhost:4000/api/beers/${id}/reviews`
+    fetch(`https://zero-percent-brews-api.onrender.com/api/beers/${id}/reviews`, 
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          comments: {
+            user_id: user_id,
+            body: commentBody
+          }
+        }),
+      }
+    ).then((response) => {
+      if (response.ok) {
+        navigate(-1);
+      }
+    }).catch(e => {
+      setError(e.message);
+    });
+
+
   }
 
   return (
@@ -40,11 +65,12 @@ const SocialProof = (props) => {
           <input
               type="text"
               name="comment"
-              value={comment.body}
+              value={commentBody}
               onChange={handleChange}
             />
           <ButtonPrimary text={"Submit"} onClick={handleSubmit}/>
           </form>
+        { error && <p>error</p>}
         </div>
 
         {props.beerData.comments.map((comment) => {
