@@ -4,20 +4,20 @@ import SocialProof from '../Components/SocialProof/SocialProof';
 import './BeerListing.css';
 // import { useEffect, useState } from 'react';
 // import { useParams } from 'react-router-dom';
-import beerData from '../tests/mockData';
+
+const data = require('../tests/mockData'); // temp mock data
 
 const BeerListing = () => {
-//   const { id } = useParams();
-//   const [beerData, setBeerData] = useState();
-
-//   useEffect(() => {
-//     fetch(`https://zero-percent-brews-api.onrender.com/api/beers/${id}`)
-//       .then((response) => response.json())
-//       .then((data) => {
-//         setBeerData(data);
-//       });
-//   }, [id]);
-
+  // const { id } = useParams();
+  // const [beerData, setBeerData] = useState();
+const beerData = data[0];
+  // useEffect(() => {
+  //   fetch(`https://zero-percent-brews-api.onrender.com/api/beers/${id}`)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setBeerData(data);
+  //     });
+  // }, [id]);
 
   return (
     <div className='beer__listing__container'>
