@@ -1,0 +1,20 @@
+.login_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 60px;
+  padding: 20px 30px;
+  max-width: 430px;
+}
+
+@media only screen and (min-width: 425px) {
+  .login_container {
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 945px;
+  }
+
+
+}

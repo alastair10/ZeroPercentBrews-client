@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ButtonPrimary from "../Components/Core/ButtonPrimary";
+import styles from './Login.module.css';
 
 const Login = () => {
   const [userData, setUserData] = useState(
@@ -47,9 +48,9 @@ const Login = () => {
   };
 
   return (
-    <>
+    <div className={styles.login_container}>
       <h1>Welcome back, smooth hoperator</h1>
-      <form>
+      <form className={styles.login_form}>
         <label>
           Email
           <input
@@ -72,7 +73,7 @@ const Login = () => {
         <br />
         <ButtonPrimary text={"Log In"} onClick={handleSubmit} />
       </form>
-    </>
+    </div>
   );
 };
 
