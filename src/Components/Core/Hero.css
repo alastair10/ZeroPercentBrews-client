@@ -18,33 +18,19 @@
 .hero__container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px 20px 120px 20px;
+  padding: 60px 20px 120px 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 30px;
   height: 100%;
 }
 
-@media screen and (min-width: 550px) {
-  .hero__container {
-    padding: 50px 20px;
-  }
-}
-
-.hero__tagline {
-  color: var(--orange);
-  font-weight: bold;
-  font-size: 2.2rem;
-  max-width: 190px;
-  margin: 0;
-}
-
-@media screen and (min-width: 550px) {
-  .hero__tagline {
-    max-width: 320px;
-    font-size: 3rem;
-    max-width: 320px;
-  }
+.hero__logo {
+  /* smallest screen 320px */
+  width: 316px;
+  display: block;
+  object-fit: cover;
+  object-position: 0% 0%;
 }
 
 .hero__message_1,

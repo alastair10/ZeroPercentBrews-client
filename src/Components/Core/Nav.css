@@ -35,14 +35,6 @@
     width: 147px;
     height: 19px;
   }
-
-  .nav__logo {
-    width: 147px;
-    height: 17px;
-    display: block;
-    object-fit: cover;
-    object-position: 0% 0%;
-  }
 }
 
 .nav__buttons {
