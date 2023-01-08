@@ -6,26 +6,28 @@
   padding: 20px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  /* align-items: center; */
   max-width: 800px;
   margin: 0 auto;
 }
 
-.nav__link--logo {
-  width: 147px;
-  height: 19px;
-  overflow: hidden;
+/* .nav__link--logo {
+
+} */
+
+.nav__home {
+  display: none;
+  height: 43px;
 }
 
-.nav__logo {
-  width: 36px;
-  /* width: 147px; */
-  height: 17px;
-  display: block;
-  object-fit: cover;
-  object-position: 34% 0%;
-  transition: .8s;
-  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+@media only screen and (min-width: 350px) {
+  .nav__home {
+    display: block;
+  }
+
+  /* .nav__container {
+    justify-content: flex-start;
+  } */
 }
 
 @media only screen and (min-width: 425px) {
