@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Hero from "../Components/Core/Hero";
 import ButtonPrimary from "../Components/Core/ButtonPrimary";
-import styles from './Login.module.css';
+import styles from './Access.module.css';
 
 const Register = () => {
   const [userData, setUserData] = useState(

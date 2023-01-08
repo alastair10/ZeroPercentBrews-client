@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ButtonPrimary from "../Components/Core/ButtonPrimary";
 import Hero from "../Components/Core/Hero";
-import styles from './Login.module.css';
+import styles from './Access.module.css';
 
 const Login = () => {
   const [userData, setUserData] = useState(
@@ -51,29 +51,27 @@ const Login = () => {
   return (
     <>
       <Hero message_1={"Welcome back,"} message_2={"smooth hoperator"} />
-      <div className={styles.login_container}>
-        <form className={styles.login_form}>
-          <label>
-            Email
-            <input
-              type="email"
-              name="email"
-              value={userData.email}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Password
-            <input
-              type="password"
-              name="password"
-              value={userData.password}
-              onChange={handleChange}
-            />
-          </label>
-          <ButtonPrimary text={"Log In"} onClick={handleSubmit} />
-        </form>
-      </div>
+      <form>
+        <label>
+          Email
+          <input
+            type="email"
+            name="email"
+            value={userData.email}
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          Password
+          <input
+            type="password"
+            name="password"
+            value={userData.password}
+            onChange={handleChange}
+          />
+        </label>
+        <ButtonPrimary text={"Log In"} onClick={handleSubmit} />
+      </form>
     </>
   );
 };
