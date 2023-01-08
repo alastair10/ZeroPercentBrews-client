@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Hero from "../Components/Core/Hero";
+import ButtonPrimary from "../Components/Core/ButtonPrimary";
 import styles from './Login.module.css';
 
 const Register = () => {
@@ -47,7 +48,7 @@ const Register = () => {
   return (
     <>
     <Hero message_1={"Join the lager"} message_2={"than life community"}/>
-      <form onSubmit={handleSubmit}>
+      <form>
         <label>
           Username
           <input
@@ -57,7 +58,6 @@ const Register = () => {
             onChange={handleChange}
           />
         </label>
-        <br />
         <label>
           Email
           <input
@@ -67,7 +67,6 @@ const Register = () => {
             onChange={handleChange}
           />
         </label>
-        <br />
         <label>
           Password
           <input
@@ -77,13 +76,7 @@ const Register = () => {
             onChange={handleChange}
           />
         </label>
-        <br />
-        <input
-          className="register-form-submit"
-          name="submit"
-          type="submit"
-          value="Sign Up"
-        />
+        <ButtonPrimary text={"Sign Up"} onClick={handleSubmit} />
       </form>
     </>
   );
