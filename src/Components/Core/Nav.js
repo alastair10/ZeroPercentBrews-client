@@ -7,7 +7,6 @@ import ButtonSecondary from './ButtonSecondary';
 const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
   
   const handleLogOut = () => {
-    console.log('logging out')
     window.localStorage.removeItem("token");
     setIsLoggedIn(false);
   }

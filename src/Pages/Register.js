@@ -40,7 +40,7 @@ const Register = ({ isLoggedIn, setIsLoggedIn }) => {
       if (response.status === 200) {
         const data = response.json();
         window.localStorage.setItem("token", data.token);
-        
+        setIsLoggedIn(true);
         navigate("/");
       } else {
         navigate("/register");
