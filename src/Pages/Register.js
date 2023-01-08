@@ -38,7 +38,8 @@ const Register = () => {
       }),
     }).then((response) => {
       if (response.status === 200) {
-        navigate("/login");
+        window.localStorage.setItem("token", data.token);
+        navigate("/");
       } else {
         navigate("/register");
       }
