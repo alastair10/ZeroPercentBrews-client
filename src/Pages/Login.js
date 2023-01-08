@@ -4,7 +4,8 @@ import ButtonPrimary from "../Components/Core/ButtonPrimary";
 import Hero from "../Components/Core/Hero";
 import styles from './Access.module.css';
 
-const Login = () => {
+const Login = ({ isLoggedIn, setIsLoggedIn }) => {
+  console.log(isLoggedIn)
   const [userData, setUserData] = useState(
     {
       email: "",
@@ -39,6 +40,7 @@ const Login = () => {
       if (response.status === 200) {
         const data = response.json();
         window.localStorage.setItem("token", data.token);
+        setIsLoggedIn(true);
         navigate("/");
       } else {
         navigate("/login");

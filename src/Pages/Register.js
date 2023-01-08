@@ -4,7 +4,7 @@ import Hero from "../Components/Core/Hero";
 import ButtonPrimary from "../Components/Core/ButtonPrimary";
 import styles from './Access.module.css';
 
-const Register = () => {
+const Register = ({ isLoggedIn, setIsLoggedIn }) => {
   const [userData, setUserData] = useState(
     {
       username: "",
@@ -38,7 +38,9 @@ const Register = () => {
       }),
     }).then((response) => {
       if (response.status === 200) {
+        const data = response.json();
         window.localStorage.setItem("token", data.token);
+        
         navigate("/");
       } else {
         navigate("/register");
