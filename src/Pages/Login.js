@@ -47,29 +47,32 @@ const Login = () => {
   };
 
   return (
-    <form>
-      <label>
-        Email
-        <input
-          type="email"
-          name="email"
-          value={userData.email}
-          onChange={handleChange}
-        />
-      </label>
-      <br />
-      <label>
-        Password
-        <input
-          type="password"
-          name="password"
-          value={userData.password}
-          onChange={handleChange}
-        />
-      </label>
-      <br />
-      <ButtonPrimary text={"Log In"} onClick={handleSubmit} />
-    </form>
+    <>
+      <h1>Welcome back, smooth hoperator</h1>
+      <form>
+        <label>
+          Email
+          <input
+            type="email"
+            name="email"
+            value={userData.email}
+            onChange={handleChange}
+          />
+        </label>
+        <br />
+        <label>
+          Password
+          <input
+            type="password"
+            name="password"
+            value={userData.password}
+            onChange={handleChange}
+          />
+        </label>
+        <br />
+        <ButtonPrimary text={"Log In"} onClick={handleSubmit} />
+      </form>
+    </>
   );
 };
 
