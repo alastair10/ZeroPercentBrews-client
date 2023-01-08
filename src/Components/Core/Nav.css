@@ -6,14 +6,9 @@
   padding: 20px;
   display: flex;
   justify-content: space-between;
-  /* align-items: center; */
   max-width: 800px;
   margin: 0 auto;
 }
-
-/* .nav__link--logo {
-
-} */
 
 .nav__home {
   display: none;
@@ -23,17 +18,6 @@
 @media only screen and (min-width: 350px) {
   .nav__home {
     display: block;
-  }
-
-  /* .nav__container {
-    justify-content: flex-start;
-  } */
-}
-
-@media only screen and (min-width: 425px) {
-  .nav__link--logo {
-    width: 147px;
-    height: 19px;
   }
 }
 
