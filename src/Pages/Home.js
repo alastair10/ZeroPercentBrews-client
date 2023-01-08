@@ -14,7 +14,7 @@ const Home = () => {
           () =>
             setBeerData(
               data.sort((a, b) => {
-                return b.reviews.length - a.reviews.length;
+                return b.comments.length - a.comments.length;
               })
             ),
           2000
