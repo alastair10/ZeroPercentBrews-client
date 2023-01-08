@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Hero from "../Components/Core/Hero";
+import styles from './Login.module.css';
 
 const Register = () => {
   const [userData, setUserData] = useState(
@@ -43,44 +45,47 @@ const Register = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Username
+    <>
+    <Hero message_1={"Join the lager"} message_2={"than life community"}/>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Username
+          <input
+            type="text"
+            name="username"
+            value={userData.username}
+            onChange={handleChange}
+          />
+        </label>
+        <br />
+        <label>
+          Email
+          <input
+            type="email"
+            name="email"
+            value={userData.email}
+            onChange={handleChange}
+          />
+        </label>
+        <br />
+        <label>
+          Password
+          <input
+            type="password"
+            name="password"
+            value={userData.password}
+            onChange={handleChange}
+          />
+        </label>
+        <br />
         <input
-          type="text"
-          name="username"
-          value={userData.username}
-          onChange={handleChange}
+          className="register-form-submit"
+          name="submit"
+          type="submit"
+          value="Sign Up"
         />
-      </label>
-      <br />
-      <label>
-        Email
-        <input
-          type="email"
-          name="email"
-          value={userData.email}
-          onChange={handleChange}
-        />
-      </label>
-      <br />
-      <label>
-        Password
-        <input
-          type="password"
-          name="password"
-          value={userData.password}
-          onChange={handleChange}
-        />
-      </label>
-      <br />
-      <input
-        className="register-form-submit"
-        name="submit"
-        type="submit"
-        value="Sign Up"
-      />
-    </form>
+      </form>
+    </>
   );
 };
 
