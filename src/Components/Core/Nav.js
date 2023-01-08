@@ -5,8 +5,14 @@ import ButtonTertiary from "./ButtonTertiary";
 import ButtonSecondary from "./ButtonSecondary";
 
 const Navbar = () => {
+  let user = window.localStorage.getItem("token")
+  console.log('user variable below this')
+  console.log(user)
+  console.log('user variable above this')
+
+   if(!user){
   return (
-    <nav className="nav">
+   <nav className="nav">
       <div className="nav__container">
         <Link className="nav__link--logo" to="/">
           <img className="nav__logo" src={logo} alt="svg logo" />
@@ -19,8 +25,17 @@ const Navbar = () => {
           <ButtonSecondary path={"/register"} text={"Sign Up"} />
         </div>
       </div>
-    </nav>
-  );
-};
+    </nav>)
+   }else{
+    return (
+      <nav className="nav">
+      <div className="nav__container">
+        <Link className="nav__link--logo" to="/">
+          <img className="nav__logo" src={logo} alt="svg logo" />
+        </Link>
+      </div>
+      </nav>
+   )
+}}
 
 export default Navbar;
