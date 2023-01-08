@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import ButtonPrimary from "../Components/Core/ButtonPrimary";
+import Hero from "../Components/Core/Hero";
+import styles from './Access.module.css';
 
-const Login = () => {
+const Login = ({ isLoggedIn, setIsLoggedIn }) => {
   const [userData, setUserData] = useState(
     {
       email: "",
@@ -9,6 +12,7 @@ const Login = () => {
     }
   );
   const navigate = useNavigate();
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setUserData((prevUserData) => ({
@@ -20,7 +24,7 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    fetch(
+    let response = await fetch(
       "https://zero-percent-brews-api.onrender.com/api/user/login",
       {
         method: "POST",
@@ -31,49 +35,44 @@ const Login = () => {
           email: userData.email,
           password: userData.password
         }),
-      }
-    ).then((response) => {
-      if (response.status === 200) {
-        const data = response.json();
-        window.localStorage.setItem("token", data.token);
-        window.localStorage.setItem("user_id", data.user_id);
-        navigate("/");
-      } else {
-        navigate("/login");
-      }
-    });
+      });
+
+    if (response.status === 200) {
+      let data = await response.json();
+      setIsLoggedIn(data.token);
+      window.localStorage.setItem("token", data.token);
+      navigate("/");
+    } else {
+      navigate("/login");
+    };
 
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Email
-        <input
-          type="email"
-          name="email"
-          value={userData.email}
-          onChange={handleChange}
-        />
-      </label>
-      <br />
-      <label>
-        Password
-        <input
-          type="password"
-          name="password"
-          value={userData.password}
-          onChange={handleChange}
-        />
-      </label>
-      <br />
-      <input
-        className="register-form-submit"
-        name="login"
-        type="submit"
-        value="Log In"
-      />
-    </form>
+    <>
+      <Hero message_1={"Welcome back,"} message_2={"smooth hoperator"} />
+      <form className={styles.log_reg_form}>
+        <label>
+          Email
+          <input
+            type="email"
+            name="email"
+            value={userData.email}
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          Password
+          <input
+            type="password"
+            name="password"
+            value={userData.password}
+            onChange={handleChange}
+          />
+        </label>
+        <ButtonPrimary text={"Log In"} onClick={handleSubmit} />
+      </form>
+    </>
   );
 };
 
