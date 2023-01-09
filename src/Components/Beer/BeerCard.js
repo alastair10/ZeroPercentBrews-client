@@ -3,7 +3,6 @@ import ButtonPrimary from '../Core/ButtonPrimary';
 
 const BeerCard = ({ beerInfo }) => {
 
-  console.log(beerInfo)
   return (
     <div className={styles.beer}>
       <img

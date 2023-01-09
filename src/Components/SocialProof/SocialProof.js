@@ -19,7 +19,7 @@ const SocialProof = (props) => {
     e.preventDefault();
     // `http://localhost:4000/api/beers/${id}/reviews`
     // `https://zero-percent-brews-api.onrender.com/api/beers/${id}/reviews`
-    fetch(`https://zero-percent-brews-api.onrender.com/api/beers/${id}/comments`, {
+    fetch(`http://localhost:4000/api/beers/${id}/comments`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -35,7 +35,7 @@ const SocialProof = (props) => {
       .then((response) => {
         if (response.ok) {
           setCommentBody("");
-          console.log("comment added to DB");
+          props.setCommentAdd(true);
         }
       })
       .catch((e) => {
