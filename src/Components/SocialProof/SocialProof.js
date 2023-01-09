@@ -18,8 +18,8 @@ const SocialProof = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // `http://localhost:4000/api/beers/${id}/reviews`
-    // `https://zero-percent-brews-api.onrender.com/api/beers/${id}/reviews`
-    fetch(`http://localhost:4000/api/beers/${id}/comments`, {
+    // `http://localhost:4000/api/beers/${id}/comments`
+    fetch(`https://zero-percent-brews-api.onrender.com/api/beers/${id}/comments`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
