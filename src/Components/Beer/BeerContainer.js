@@ -1,6 +1,5 @@
 import styles from './BeerContainer.module.css';
 import BeerCard from './BeerCard';
-// import data from '../../tests/mockData';
 
 const BeerContainer = ({ beerData }) => {
   return (
