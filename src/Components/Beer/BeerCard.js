@@ -26,8 +26,9 @@ const BeerCard = ({ beerInfo }) => {
 
     if (response.status === 200) {
       let data = await response.json();
-      console.log(data);
-      console.log("vote added")
+    } else {
+      setError(response.status);
+      console.log(error)
     }
     
     
