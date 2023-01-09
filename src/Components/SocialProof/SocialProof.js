@@ -19,14 +19,14 @@ const SocialProof = (props) => {
     e.preventDefault();
     // `http://localhost:4000/api/beers/${id}/reviews`
     // `https://zero-percent-brews-api.onrender.com/api/beers/${id}/reviews`
-    fetch(`https://zero-percent-brews-api.onrender.com/api/beers/${id}/reviews`, {
+    fetch(`https://zero-percent-brews-api.onrender.com/api/beers/${id}/comments`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
-        comments: {
+        comment: {
           user_id: user_id,
           body: commentBody,
         },
