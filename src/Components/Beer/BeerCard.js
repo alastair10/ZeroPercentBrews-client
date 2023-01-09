@@ -16,7 +16,7 @@ const BeerCard = ({ beerInfo }) => {
           <h3 className={styles.beer__title}>{beerInfo.title}</h3>
           <div className={styles.social__proof}>
             <div className={styles.upvote}>
-              <div className={styles.upvote__score}>{beerInfo.upvote}</div>
+              <div className={styles.upvote__score}>{beerInfo.kegs}</div>
             </div>
             <button className={styles.upvote__button}>⬆️</button>
           </div>
