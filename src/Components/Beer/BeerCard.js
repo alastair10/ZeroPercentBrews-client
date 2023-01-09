@@ -1,7 +1,48 @@
 import styles from './BeerCard.module.css';
 import ButtonPrimary from '../Core/ButtonPrimary';
+import { useState } from "react";
+import { useParams } from "react-router-dom";
 
 const BeerCard = ({ beerInfo }) => {
+  const [error, setError] = useState(undefined);
+  const token = window.localStorage.getItem("token");
+  const id = beerInfo._id;
+
+  const handleKegVote = async (event) => {
+    const currentKegs = beerInfo.kegs;
+    const newKegs = currentKegs + 1;
+    event.preventDefault();
+
+    let response = await fetch(`https://zero-percent-brews-api.onrender.com/api/beers/${id}/kegs`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        kegs: newKegs
+      }),
+    });
+
+    if (response.status === 200) {
+      let data = await response.json();
+      console.log(data);
+      console.log("vote added")
+    }
+    
+    
+    // .then((response) => {
+    //   if(response === 200) {
+    //     console.log("vote added");
+    //   }
+    // }).then((data) => {
+    //   console.log("vote added");
+    // }).catch((err) => {
+    //   setError(err.message);
+    //   console.log(error);
+    // });
+
+  };
 
   return (
     <div className={styles.beer}>
@@ -18,7 +59,7 @@ const BeerCard = ({ beerInfo }) => {
             <div className={styles.upvote}>
               <div className={styles.upvote__score}>{beerInfo.kegs}</div>
             </div>
-            <button className={styles.upvote__button}>⬆️</button>
+            <button onClick={handleKegVote} className={styles.upvote__button}>⬆️</button>
           </div>
 
           <div className={styles.basic__info__item}>
