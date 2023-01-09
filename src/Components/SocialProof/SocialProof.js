@@ -17,32 +17,30 @@ const SocialProof = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // `http://localhost:4000/api/beers/${id}/reviews`
-    // `http://localhost:4000/api/beers/${id}/comments`
-    fetch(
-      `https://zero-percent-brews-api.onrender.com/api/beers/${id}/comments`,
-      {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          comment: {
-            user_id: user_id,
-            body: commentBody,
-          },
-        }),
+
+    fetch(`https://zero-percent-brews-api.onrender.com/api/beers/${id}/comments`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        comment: {
+          user_id: user_id,
+          body: commentBody,
+      },
+         }),
       }
     )
       .then((response) => {
-        if (response.ok) {
-          setCommentBody('');
+        if (response.status === 200) {
+          setCommentBody("");
           props.setCommentAdd(true);
         }
       })
-      .catch((e) => {
-        setError(e.message);
+      .catch((err) => {
+        setError(err.message);
+        console.log(error);
       });
   };
 

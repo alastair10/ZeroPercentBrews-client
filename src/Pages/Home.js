@@ -2,7 +2,6 @@ import BeerContainer from '../Components/Beer/BeerContainer';
 import Loader from '../Components/Core/Loader';
 import Hero from '../Components/Core/Hero';
 import { useState, useEffect } from 'react';
-// const beerData = require('../tests/mockData');
 
 const Home = () => {
   const [beerData, setBeerData] = useState();
