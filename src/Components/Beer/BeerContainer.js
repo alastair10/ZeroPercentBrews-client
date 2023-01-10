@@ -6,7 +6,7 @@ import ButtonTertiary from '../Core/ButtonTertiary';
 const BeerContainer = ({ beerData, setBeerData }) => {
 
   const getMostLiked = () => {
-    fetch(`http://localhost:4000/api/beers/most-liked`)
+    fetch('http://localhost:4000/api/beers/most-liked')
       .then((response) => response.json())
       .then((data) => {
         setBeerData(data);
@@ -14,7 +14,7 @@ const BeerContainer = ({ beerData, setBeerData }) => {
   };
 
   const getLowestCal = () => {
-    fetch(`http://localhost:4000/api/beers/low-cal`)
+    fetch('http://localhost:4000/api/beers/low-cal')
       .then((response) => response.json())
       .then((data) => {
         setBeerData(data);
@@ -22,7 +22,12 @@ const BeerContainer = ({ beerData, setBeerData }) => {
   };
 
   const getBeersByType = (event) => {
-    console.log(event.target.value)
+    let type = event.target.value;
+    fetch(`http://localhost:4000/api/beers/${type}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setBeerData(data);
+      });
   }
 
   return (
