@@ -55,6 +55,7 @@
 .social__proof {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .upvote {
@@ -67,6 +68,7 @@
   font-weight: bold;
   font-size: 2rem;
   display: block;
+  margin-right: 7px;
   color: var(--orange);
 }
 
@@ -90,11 +92,11 @@
   border-radius: 5px;
   background-color: inherit;
   cursor: pointer;
-  transition: background-color .5s, scale .2s;
+  transition: background-color 0.5s, scale 0.2s;
 }
 
 .upvote__button:hover {
-  background-color: #BBD2E0;
+  background-color: #bbd2e0;
 }
 
 .upvote__button:active {

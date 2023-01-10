@@ -1,21 +1,17 @@
-
 import styles from "../Beer/BeerCard.module.css";
 import { useState } from "react";
 
-const Voting = (beerProps) => {
+const Voting = ( {kegs, setKegs, beer_id} ) => {
   const [error, setError] = useState(undefined);
   const token = window.localStorage.getItem("token");
-  const id = beerProps._id;
-  const [kegs, setKegs] = useState(beerProps.kegs);
   
-  
+ 
   const handleKegUpVote = async (event) => {
-  
-    const newKegs = kegs + 1;
+    const newUpKegs = kegs + 1;
     event.preventDefault();
 
     let response = await fetch(
-      `https://zero-percent-brews-api.onrender.com/api/beers/${id}/kegs`,
+      `https://zero-percent-brews-api.onrender.com/api/beers/${beer_id}/kegs`,
       {
         method: "PATCH",
         headers: {
@@ -23,31 +19,60 @@ const Voting = (beerProps) => {
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
-          kegs: newKegs,
+          kegs: newUpKegs,
         }),
       }
     );
 
     if (response.status === 200) {
       await response.json();
-      setKegs(newKegs);
+      setKegs(newUpKegs);
+      console.log(newUpKegs)
     } else {
       setError(response.status);
       console.log(error);
     }
   };
 
+  const handleKegDownVote = async (event) => {
+    const newDownKegs = kegs - 1;
+    event.preventDefault();
 
+    let response = await fetch(
+      `https://zero-percent-brews-api.onrender.com/api/beers/${beer_id}/kegs`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          kegs: newDownKegs
+        }),
+      }
+    );
+
+    if (response.status === 200) {
+      await response.json();
+      setKegs(newDownKegs);
+      console.log(newDownKegs)
+    } else {
+      setError(response.status);
+      console.log(error);
+    }
+  };
 
   return (
-  
-  <button onClick={handleKegUpVote} className={styles.upvote__button}>
-  ⬆️
-</button> 
-);
-}
- 
-export default Voting;
+    <div>
+     <button onClick={handleKegUpVote} className={styles.upvote__button}>
+        ⬆️
+      </button>
+      <button onClick={handleKegDownVote} className={styles.upvote__button}>
+     ⬇️
+         
+      </button>
+    </div>
+  );
+};
 
-  {/* <div className={styles.upvote__score}>{kegs}</div> */}
-    {/* <div className={styles.upvote__score}>{kegs}</div>*/}
+export default Voting;
