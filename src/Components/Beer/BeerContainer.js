@@ -37,7 +37,7 @@ const BeerContainer = ({ beerData, setBeerData }) => {
         <ButtonTertiary text={'Low Cal'} onClick={getLowestCal} />
         <select
           onChange={getBeersByType}
-          className="discover__dropdown"
+          className={styles.refinement_dropdown}
         >
           <option value="">Type</option>
           <option value="Ale">Ale</option>
