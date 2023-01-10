@@ -1,14 +1,28 @@
 import Hero from "../Components/Core/Hero";
-// import BeerContainer from "../Components/Beer/BeerContainer";
-import { useState } from "react";
-import ButtonPrimary from "../Components/Core/ButtonPrimary";
+import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 
 const Account = () => {
   const user_id = window.localStorage.getItem("user_id");
-  // const [savedBeers, setSavedBeers] = useState("");
+  const token = window.localStorage.getItem("token");
+  const [userData, setUserData] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [message, setMessage] = useState("");
-  const token = window.localStorage.getItem("token");
+
+
+  useEffect(() => {
+    fetch(`https://zero-percent-brews-api.onrender.com/api/user/${user_id}`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setUserData(data);
+      });
+  }, [token, user_id]);
+  
   const handleChange = (e) => {
     setNewPassword(e.target.value);
   };
@@ -36,21 +50,40 @@ const Account = () => {
     });
   };
 
-  // will need to populate username instead of user_id below
-  // pull in BeerContainer to map through saved results
   return (
     <>
-      <Hero message_1={"Account details for,"} message_2={user_id} />
-      <div>{message}</div>
-      <form>
-        <label>Change Password:</label>
-        <input type="password" value={newPassword} onChange={handleChange} />
-        <ButtonPrimary text={"Submit"} onClick={handleSubmit} />
-      </form>
+      {userData && (
+        <>
+          <Hero
+            message_1={"Account details for:"}
+            message_2= <strong className="review__title">{userData.username}</strong>
+          />
+          <h2 className="beer__title">Account information:</h2>
+            <div className="info__item">
+              <span className="attribute">Username: </span>
+              {userData.username}</div>
+            <div className="info__item">
+              <span className="attribute">Email:</span> {userData.email}
+            </div>
+          <form>
+            <label>Change Password:</label>
+            <input type="password" value={newPassword} onChange={handleChange} />
+            <ButtonPrimary text={"Submit"} onClick={handleSubmit} />
+          </form>
+          <h2 className="beer__title">Your saved beers:</h2>
+          <div>
+            {userData.saved.map((savedBeers) => {
+              return (
+                <Link key = {savedBeers.title} to={`/beer/${savedBeers._id}`}>
+                  <p className="attribute">{savedBeers.title}</p>
+                </Link>
+              )
+            })}
+          </div>
+        </>
+      )}
     </>
   );
 };
 
 export default Account;
-
-// value={userData.password}
