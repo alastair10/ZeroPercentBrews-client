@@ -17,6 +17,7 @@ const BeerContainer = ({ beerData, setBeerData }) => {
     <>
       <div className={styles.refinement_field}>
         <ButtonTertiary text={'Most Liked'} onClick={getMostLiked} />
+        <ButtonTertiary text={'Low Cal'} />
       </div>
       <div className={styles.beer_container}>
         {beerData.map((beer) => {
