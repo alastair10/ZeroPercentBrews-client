@@ -66,18 +66,13 @@ const BeerCardExpanded = ({ beerData }) => {
                   {beerData.comments.length} Comments
                 </a>
               </div>
-              <div className='basic__info__item'>
-                <span className='attribute'>From:</span> {beerData.country}
-              </div>
-              <div className='basic__info__item'>
-                <span className='attribute'>Calories:</span> {beerData.calories}{' '}
-                kcal
-              </div>
-              <div className='basic__info__desc'>{beerData.description}</div>
               {!isSaved ? 
                 <ButtonSecondary text={'Save'} onClick={handleSave} /> : 
                 <ButtonTertiary text={'Unsave'} onClick={handleUnsave} />}
+              <div className='basic__info__desc'>{beerData.description}</div>
+
             </div>
+            
           </div>
         </>
       )}
