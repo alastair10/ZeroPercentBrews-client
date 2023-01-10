@@ -15,7 +15,7 @@ function App() {
     <>
       <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       <Routes>
-        <Route path="/account/:id" element= {<Account />} />
+        <Route path="/account" element= {<Account />} />
         <Route path="/register" element={<Register isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/" element={<Home />} />
