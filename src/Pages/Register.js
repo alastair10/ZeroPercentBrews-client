@@ -42,6 +42,7 @@ const Register = ({ isLoggedIn, setIsLoggedIn }) => {
       let data = await response.json();
       setIsLoggedIn(data.token);
       window.localStorage.setItem("token", data.token);
+      window.localStorage.setItem("user_id", data.user_id);
       navigate("/");
     } else {
       navigate("/register");

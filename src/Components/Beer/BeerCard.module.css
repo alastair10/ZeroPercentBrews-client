@@ -54,21 +54,23 @@
 
 .social__proof {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
-.rating {
+.upvote {
   display: flex;
   align-items: center;
   gap: 5px;
 }
 
-.rating__score {
+.upvote__score {
   font-weight: bold;
+  font-size: 2rem;
   display: block;
+  color: var(--orange);
 }
 
-.rating__star {
+.upvote__star {
   display: block;
   margin-bottom: 3px;
 }
@@ -80,15 +82,23 @@
   text-align: right;
 }
 
-.reviews__info:link,
-.reviews__info:visited {
-  color: var(--blue);
-  transition: 0.5s;
+.upvote__button {
+  display: block;
+  font-size: 2rem;
+  margin: 0;
+  border: none;
+  border-radius: 5px;
+  background-color: inherit;
+  cursor: pointer;
+  transition: background-color .5s, scale .2s;
 }
 
-.reviews__info:hover,
-.reviews__info:active {
-  color: var(--orange);
+.upvote__button:hover {
+  background-color: #BBD2E0;
+}
+
+.upvote__button:active {
+  scale: 0.8;
 }
 
 .attribute {

@@ -5,20 +5,25 @@ import { useState, useEffect } from 'react';
 
 const Home = () => {
   const [beerData, setBeerData] = useState();
-
   useEffect(() => {
     fetch(`https://zero-percent-brews-api.onrender.com/api/beers`)
       .then((response) => response.json())
       .then((data) => {
-        setTimeout(() => setBeerData(data.sort((a, b) => {
-          return b.reviews.length - a.reviews.length
-        })), 2000);
+        setTimeout(
+          () =>
+            setBeerData(
+              data.sort((a, b) => {
+                return b.comments.length - a.comments.length;
+              })
+            ),
+          2000
+        );
       });
   }, []);
 
   return (
     <>
-      <Hero message_1={"Find and review,"} message_2={"hangover-free beers."} />
+      <Hero message_1={'Find and review,'} message_2={'hangover-free beers.'} />
       {beerData ? <BeerContainer beerData={beerData} /> : <Loader />}
     </>
   );
