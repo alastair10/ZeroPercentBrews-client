@@ -6,7 +6,7 @@ import { useState } from "react";
 import './BeerCardExpanded.css';
 
 const BeerCardExpanded = ({ beerData }) => {
-  const [isSaved, setIsSaved] = useState();
+  const [isSaved, setIsSaved] = useState(false);
   const token = window.localStorage.getItem("token");
   const user_id = window.localStorage.getItem("user_id")
 
@@ -29,7 +29,25 @@ const BeerCardExpanded = ({ beerData }) => {
       })
   }
 
-  console.log(beerData._id)
+  const handleUnsave = () => {
+    fetch(`https://zero-percent-brews-api.onrender.com/api/user/${user_id}/saved`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        beer_id: beerData._id,
+        isSaved: true
+         }),
+      }
+    )
+      .then((response) => {
+        if (response.status === 200) {
+          setIsSaved(false);
+        }
+      })
+  }
 
   return (
     <>
@@ -56,7 +74,9 @@ const BeerCardExpanded = ({ beerData }) => {
                 kcal
               </div>
               <div className='basic__info__desc'>{beerData.description}</div>
-              <ButtonSecondary text={'Save'} onClick={handleSave} />
+              {!isSaved ? 
+                <ButtonSecondary text={'Save'} onClick={handleSave} /> : 
+                <ButtonTertiary text={'Unsave'} onClick={handleUnsave} />}
             </div>
           </div>
         </>
