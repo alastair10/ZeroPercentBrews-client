@@ -1,35 +1,38 @@
 import Hero from "../Components/Core/Hero";
 // import BeerContainer from "../Components/Beer/BeerContainer";
 import { useState } from "react";
+import ButtonPrimary from "../Components/Core/ButtonPrimary";
+
 
 const Account = () => {
   const user_id = window.localStorage.getItem("user_id");
   // const [savedBeers, setSavedBeers] = useState("");
   const [newPassword, setNewPassword] = useState('');
-
+  const token = window.localStorage.getItem('token')
   const handleChange = (e) => {
     setNewPassword(e.target.value)
      
   }
 
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-  //   await fetch(
-  //     `https://zero-percent-brews-api.onrender.com/api/user/${user_id}/account`,
-  //     {
-  //       method: "PATCH",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({
-  //         password: userData.password,
-  //       }),
-  //     }
-  //   )
-  //     .then((newPW) => newPW.json())
-  //     .then(setUserData);
+    fetch(
+      `https://zero-percent-brews-api.onrender.com/api/user/${user_id}/account`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+           Authorization: `Bearer ${token}` 
+        },
+        body: JSON.stringify({
+          newPassword: newPassword,
+        }),
+      }
+    ).then((response) => {
+      console.log(response)
+    })
    };
 
 
@@ -47,7 +50,7 @@ const Account = () => {
         <input type="password"
         value={newPassword}
         onChange={handleChange}/>
-        
+        <ButtonPrimary text={'Submit'} onClick={handleSubmit}/>
       </form>
       
     </>
