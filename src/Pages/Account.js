@@ -1,4 +1,5 @@
 import styles from "../Components/Beer/BeerCard.module.css";
+
 import Hero from "../Components/Core/Hero";
 import { useState, useEffect } from "react";
 
@@ -25,11 +26,17 @@ const Account = () => {
       {userData && (
         <>
           <Hero
-            message_1={"Account details for, "}
+            message_1={"Account details for "}
             message_2={userData.username}
           />
-          <div className={styles.attribute}>Username: {userData.username}</div>
-          <div className={styles.attribute}>Email: {userData.email}</div>
+          <h1 className="beer__title">Account information:</h1>
+          <div class="basic__info__item">
+            <span class="attribute">Username: </span>
+            {userData.username}</div>
+          <div class="basic__info__item">
+            <span class="attribute">Email:</span> {userData.email}
+          </div>
+          <h1 className="beer__title">Your saved beers:</h1>
           <div>
             {userData.saved.map((savedBeers) => {
               return <p>{savedBeers.title}</p>;
