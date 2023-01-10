@@ -1,8 +1,54 @@
 import star from '../../images/star.svg';
+import ButtonTertiary from "../Core/ButtonTertiary";
+import ButtonSecondary from "../Core/ButtonSecondary";
+import { useState } from "react";
 
 import './BeerCardExpanded.css';
 
 const BeerCardExpanded = ({ beerData }) => {
+  const [isSaved, setIsSaved] = useState(false);
+  const token = window.localStorage.getItem("token");
+  const user_id = window.localStorage.getItem("user_id")
+
+  const handleSave = () => {
+    fetch(`https://zero-percent-brews-api.onrender.com/api/user/${user_id}/saved`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        beer_id: beerData._id
+         }),
+      }
+    )
+      .then((response) => {
+        if (response.status === 200) {
+          setIsSaved(true);
+        }
+      })
+  }
+
+  const handleUnsave = () => {
+    fetch(`https://zero-percent-brews-api.onrender.com/api/user/${user_id}/saved`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        beer_id: beerData._id,
+        isSaved: true
+         }),
+      }
+    )
+      .then((response) => {
+        if (response.status === 200) {
+          setIsSaved(false);
+        }
+      })
+  }
+
   return (
     <>
       {beerData && (
@@ -20,15 +66,13 @@ const BeerCardExpanded = ({ beerData }) => {
                   {beerData.comments.length} Comments
                 </a>
               </div>
-              <div className='basic__info__item'>
-                <span className='attribute'>From:</span> {beerData.country}
-              </div>
-              <div className='basic__info__item'>
-                <span className='attribute'>Calories:</span> {beerData.calories}{' '}
-                kcal
-              </div>
+              {!isSaved ? 
+                <ButtonSecondary text={'Save'} onClick={handleSave} /> : 
+                <ButtonTertiary text={'Unsave'} onClick={handleUnsave} />}
               <div className='basic__info__desc'>{beerData.description}</div>
+
             </div>
+            
           </div>
         </>
       )}
