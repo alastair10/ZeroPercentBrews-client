@@ -25,21 +25,23 @@ const Account = () => {
       {userData && (
         <>
           <Hero
-            message_1={"Account details for "}
-            message_2={userData.username}
+            message_1={"Account details for:"}
+            message_2= <strong className="review__title">{userData.username}</strong>
           />
           <h1 className="beer__title">Account information:</h1>
-          <div className="basic__info__item">
-            <span className="attribute">Username: </span>
-            {userData.username}</div>
-          <div className="basic__info__item">
-            <span className="attribute">Email:</span> {userData.email}
-          </div>
+            <div className="info__item">
+              <span className="attribute">Username: </span>
+              {userData.username}</div>
+            <div className="info__item">
+              <span className="attribute">Email:</span> {userData.email}
+            </div>
           <h1 className="beer__title">Your saved beers:</h1>
           <div>
             {userData.saved.map((savedBeers) => {
-              return (<Link key = {savedBeers.title} to={`/beer/${savedBeers._id}`}><p>{savedBeers.title}</p>
-              </Link>
+              return (
+                <Link key = {savedBeers.title} to={`/beer/${savedBeers._id}`}>
+                  <p className="attribute">{savedBeers.title}</p>
+                </Link>
               )
             })}
           </div>
