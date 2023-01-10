@@ -1,15 +1,18 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './BeerContainer.module.css';
 import BeerCard from './BeerCard';
+import ButtonSecondary from '../Core/ButtonSecondary';
 import ButtonTertiary from '../Core/ButtonTertiary';
 
 const BeerContainer = ({ beerData, setBeerData }) => {
+  const [refineType, setRefineType] = useState('Default');
 
   const getMostLiked = () => {
     fetch('http://localhost:4000/api/beers/most-liked')
       .then((response) => response.json())
       .then((data) => {
         setBeerData(data);
+        setRefineType('Liked');
       });
   };
 
@@ -32,9 +35,9 @@ const BeerContainer = ({ beerData, setBeerData }) => {
 
   return (
     <>
+     <label className={styles.refinement_label}>Refine Brews:</label>
       <div className={styles.refinement_field}>
-        <label className={styles.refinement_label}>Refine Brews:</label>
-        <ButtonTertiary text={'Most Liked'} onClick={getMostLiked} />
+        {refineType === 'Liked' ? <ButtonSecondary text={'Most Liked'} onClick={getMostLiked} /> : <ButtonTertiary text={'Most Liked'} onClick={getMostLiked} />}
         <ButtonTertiary text={'Low Cal'} onClick={getLowestCal} />
         <select
           onChange={getBeersByType}

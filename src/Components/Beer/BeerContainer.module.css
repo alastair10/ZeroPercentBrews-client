@@ -14,10 +14,11 @@
   margin: 10px 10px;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center
+  align-items: center;
 }
 
 .refinement_label {
+  margin-top: 10px;
   color: var(--orange);
 }
 
