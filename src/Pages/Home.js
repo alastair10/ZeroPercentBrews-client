@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 
 const Home = () => {
   const [beerData, setBeerData] = useState();
+  
   useEffect(() => {
     fetch(`https://zero-percent-brews-api.onrender.com/api/beers`)
       .then((response) => response.json())
@@ -24,7 +25,7 @@ const Home = () => {
   return (
     <>
       <Hero message_1={'Find and review,'} message_2={'hangover-free beers.'} />
-      {beerData ? <BeerContainer beerData={beerData} /> : <Loader />}
+      {beerData ? <BeerContainer beerData={beerData} setBeerData={setBeerData} /> : <Loader />}
     </>
   );
 };
