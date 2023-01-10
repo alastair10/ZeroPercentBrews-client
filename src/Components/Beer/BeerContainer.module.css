@@ -60,6 +60,12 @@
   scale: 0.95;
 }
 
+.clear_refinement {
+  text-decoration: underline;
+  color: var(--blue);
+  font-size: small;
+}
+
 @media only screen and (min-width: 425px) {
   .beer_container {
     flex-direction: row;

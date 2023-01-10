@@ -57,12 +57,12 @@ const BeerContainer = ({ beerData, setBeerData }) => {
           onChange={getBeersByType}
           className={refinement === 'type' ? styles.refinement_dropdown_selected : styles.refinement_dropdown }
         >
-          <option value="">Type</option>
+          <option value="" disabled selected hidden>Type</option>
           <option value="Ale">Ale</option>
           <option value="Cider">Cider</option>
           <option value="Lager">Lager</option>
         </select>
-        <span onClick={handleClear}>Clear</span>
+        <span className={styles.clear_refinement} onClick={handleClear}>Clear</span>
       </div>
       <div className={styles.beer_container}>
         {beerData.map((beer) => {
