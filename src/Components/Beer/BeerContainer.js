@@ -21,15 +21,17 @@ const BeerContainer = ({ beerData, setBeerData }) => {
       });
   };
 
+  const getBeersByType = (event) => {
+    console.log(event.target.value)
+  }
+
   return (
     <>
       <div className={styles.refinement_field}>
         <ButtonTertiary text={'Most Liked'} onClick={getMostLiked} />
         <ButtonTertiary text={'Low Cal'} onClick={getLowestCal} />
         <select
-          value={''}
-          onChange={''}
-          name=""
+          onChange={getBeersByType}
           className="discover__dropdown"
         >
           <option value="">Type</option>
