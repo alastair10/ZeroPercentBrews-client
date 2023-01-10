@@ -13,11 +13,19 @@ const BeerContainer = ({ beerData, setBeerData }) => {
         });
   };
 
+  const getLowestCal = () => {
+    fetch(`http://localhost:4000/api/beers/low-cal`)
+      .then((response) => response.json())
+      .then((data) => {
+        setBeerData(data);
+      });
+};
+
   return (
     <>
       <div className={styles.refinement_field}>
         <ButtonTertiary text={'Most Liked'} onClick={getMostLiked} />
-        <ButtonTertiary text={'Low Cal'} />
+        <ButtonTertiary text={'Low Cal'} onClick={getLowestCal} />
       </div>
       <div className={styles.beer_container}>
         {beerData.map((beer) => {
