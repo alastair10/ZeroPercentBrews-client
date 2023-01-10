@@ -2,22 +2,20 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ButtonPrimary from "../Components/Core/ButtonPrimary";
 import Hero from "../Components/Core/Hero";
-import styles from './Access.module.css';
+import styles from "./Access.module.css";
 
 const Login = ({ isLoggedIn, setIsLoggedIn }) => {
-  const [userData, setUserData] = useState(
-    {
-      email: "",
-      password: ""
-    }
-  );
+  const [userData, setUserData] = useState({
+    email: "",
+    password: "",
+  });
   const navigate = useNavigate();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setUserData((prevUserData) => ({
       ...prevUserData,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -33,9 +31,10 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
         },
         body: JSON.stringify({
           email: userData.email,
-          password: userData.password
+          password: userData.password,
         }),
-      });
+      }
+    );
 
     if (response.status === 200) {
       let data = await response.json();
@@ -45,8 +44,7 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
       navigate("/");
     } else {
       navigate("/login");
-    };
-
+    }
   };
 
   return (
@@ -71,7 +69,7 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
             onChange={handleChange}
           />
         </label>
-        <ButtonPrimary text={"Log In"} onClick={handleSubmit} />
+        <ButtonPrimary text={"Submit"} onClick={handleSubmit} />
       </form>
     </>
   );
