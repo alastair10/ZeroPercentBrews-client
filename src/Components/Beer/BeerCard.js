@@ -25,7 +25,7 @@ const BeerCard = ({ beerInfo }) => {
     });
 
     if (response.status === 200) {
-      let data = await response.json();
+      await response.json();
       setKegs(newKegs);
     } else {
       setError(response.status);
