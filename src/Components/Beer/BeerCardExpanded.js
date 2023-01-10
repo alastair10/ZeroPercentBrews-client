@@ -1,4 +1,6 @@
 import star from '../../images/star.svg';
+import ButtonTertiary from "../Core/ButtonTertiary";
+import ButtonSecondary from "../Core/ButtonSecondary";
 
 import './BeerCardExpanded.css';
 
@@ -28,6 +30,7 @@ const BeerCardExpanded = ({ beerData }) => {
                 kcal
               </div>
               <div className='basic__info__desc'>{beerData.description}</div>
+              <ButtonSecondary text={'Favourite'} />
             </div>
           </div>
         </>
