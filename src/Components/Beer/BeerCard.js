@@ -1,5 +1,6 @@
 import styles from './BeerCard.module.css';
 import ButtonPrimary from '../Core/ButtonPrimary';
+import Badge from '../../images/staff_pick.png'
 import { useState } from "react";
 
 const BeerCard = ({ beerInfo }) => {
@@ -35,6 +36,7 @@ const BeerCard = ({ beerInfo }) => {
 
   return (
     <div className={styles.beer}>
+      {beerInfo.staffPick && <img className={styles.badge} src={Badge} alt="staff pick badge" />}
       <img
         className={styles.beer__image}
         src={beerInfo.image}
