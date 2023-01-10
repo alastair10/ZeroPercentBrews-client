@@ -11,7 +11,7 @@ const BeerContainer = ({ beerData, setBeerData }) => {
   const getMostLiked = () => {
     setRefinement('liked');
 
-    fetch('http://localhost:4000/api/beers/most-liked')
+    fetch('https://zero-percent-brews-api.onrender.com/api/beers/most-liked')
       .then((response) => response.json())
       .then((data) => {
         setBeerData(data);
@@ -21,7 +21,7 @@ const BeerContainer = ({ beerData, setBeerData }) => {
   const getLowestCal = () => {
     setRefinement('cals');
 
-    fetch('http://localhost:4000/api/beers/low-cal')
+    fetch('https://zero-percent-brews-api.onrender.com/beers/low-cal')
       .then((response) => response.json())
       .then((data) => {
         setBeerData(data);
@@ -33,7 +33,7 @@ const BeerContainer = ({ beerData, setBeerData }) => {
 
     let type = event.target.value;
 
-    fetch(`http://localhost:4000/api/beers/${type}`)
+    fetch(`https://zero-percent-brews-api.onrender.com/api/beers/${type}`)
       .then((response) => response.json())
       .then((data) => {
         setBeerData(data);
