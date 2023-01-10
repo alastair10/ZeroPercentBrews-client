@@ -9,6 +9,7 @@
   box-shadow: var(--box-shadow);
   border-radius: var(--border-radius);
   max-width: 420px;
+  position: relative;
 }
 
 .beer__title {
@@ -16,6 +17,14 @@
   max-height: 85px;
   overflow: hidden;
   text-align: center;
+}
+
+.badge {
+  position: absolute;
+  top: 13px;
+  left: 13px;
+  width: 80px;
+  height: 80px;
 }
 
 .beer__image {
