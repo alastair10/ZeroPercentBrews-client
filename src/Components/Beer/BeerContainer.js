@@ -5,15 +5,10 @@ import ButtonSecondary from '../Core/ButtonSecondary';
 import ButtonTertiary from '../Core/ButtonTertiary';
 
 const BeerContainer = ({ beerData, setBeerData }) => {
-  const [refinedLiked, setRefinedLiked] = useState(false);
-  const [refinedCals, setRefinedCals] = useState(false);
-  const [refinedType, setRefinedType] = useState(false);
   const [refinement, setRefinement] = useState('default');
+  const [defaultResults, setDefaultResults] = useState(beerData);
 
   const getMostLiked = () => {
-    // setRefinedType(false);
-    // setRefinedCals(false);
-    // setRefinedLiked(true);
     setRefinement('liked');
 
     fetch('http://localhost:4000/api/beers/most-liked')
@@ -24,9 +19,6 @@ const BeerContainer = ({ beerData, setBeerData }) => {
   };
 
   const getLowestCal = () => {
-    // setRefinedLiked(false);
-    // setRefinedType(false);
-    // setRefinedCals(true);
     setRefinement('cals');
 
     fetch('http://localhost:4000/api/beers/low-cal')
@@ -38,12 +30,19 @@ const BeerContainer = ({ beerData, setBeerData }) => {
 
   const getBeersByType = (event) => {
     setRefinement('type');
+
     let type = event.target.value;
+
     fetch(`http://localhost:4000/api/beers/${type}`)
       .then((response) => response.json())
       .then((data) => {
         setBeerData(data);
       });
+  }
+
+  const handleClear = () => {
+    setBeerData(defaultResults);
+    setRefinement('default');
   }
 
   return (
@@ -63,6 +62,7 @@ const BeerContainer = ({ beerData, setBeerData }) => {
           <option value="Cider">Cider</option>
           <option value="Lager">Lager</option>
         </select>
+        <span onClick={handleClear}>Clear</span>
       </div>
       <div className={styles.beer_container}>
         {beerData.map((beer) => {
