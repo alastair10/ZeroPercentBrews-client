@@ -5,18 +5,30 @@ import ButtonSecondary from '../Core/ButtonSecondary';
 import ButtonTertiary from '../Core/ButtonTertiary';
 
 const BeerContainer = ({ beerData, setBeerData }) => {
-  const [refineType, setRefineType] = useState('Default');
+  const [refinedLiked, setRefinedLiked] = useState(false);
+  const [refinedCals, setRefinedCals] = useState(false);
+  const [refinedType, setRefinedType] = useState(false);
+  const [refinement, setRefinement] = useState('default');
 
   const getMostLiked = () => {
+    // setRefinedType(false);
+    // setRefinedCals(false);
+    // setRefinedLiked(true);
+    setRefinement('liked');
+
     fetch('http://localhost:4000/api/beers/most-liked')
       .then((response) => response.json())
       .then((data) => {
         setBeerData(data);
-        setRefineType('Liked');
       });
   };
 
   const getLowestCal = () => {
+    // setRefinedLiked(false);
+    // setRefinedType(false);
+    // setRefinedCals(true);
+    setRefinement('cals');
+
     fetch('http://localhost:4000/api/beers/low-cal')
       .then((response) => response.json())
       .then((data) => {
@@ -25,6 +37,7 @@ const BeerContainer = ({ beerData, setBeerData }) => {
   };
 
   const getBeersByType = (event) => {
+    setRefinement('type');
     let type = event.target.value;
     fetch(`http://localhost:4000/api/beers/${type}`)
       .then((response) => response.json())
@@ -35,13 +48,15 @@ const BeerContainer = ({ beerData, setBeerData }) => {
 
   return (
     <>
-     <label className={styles.refinement_label}>Refine Brews:</label>
+      <label className={styles.refinement_label}>Refine Brews:</label>
       <div className={styles.refinement_field}>
-        {refineType === 'Liked' ? <ButtonSecondary text={'Most Liked'} onClick={getMostLiked} /> : <ButtonTertiary text={'Most Liked'} onClick={getMostLiked} />}
-        <ButtonTertiary text={'Low Cal'} onClick={getLowestCal} />
+        {refinement === 'liked' ? <ButtonSecondary text={'Most Liked'} /> : <ButtonTertiary text={'Most Liked'} onClick={getMostLiked} />}
+   
+        {refinement === 'cals' ? <ButtonSecondary text={'Low Cal'} /> : <ButtonTertiary text={'Low Cal'} onClick={getLowestCal} />}
+        
         <select
           onChange={getBeersByType}
-          className={styles.refinement_dropdown}
+          className={refinement === 'type' ? styles.refinement_dropdown_selected : styles.refinement_dropdown }
         >
           <option value="">Type</option>
           <option value="Ale">Ale</option>
