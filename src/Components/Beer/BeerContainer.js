@@ -33,6 +33,7 @@ const BeerContainer = ({ beerData, setBeerData }) => {
   return (
     <>
       <div className={styles.refinement_field}>
+        <label className={styles.refinement_label}>Refine Brews:</label>
         <ButtonTertiary text={'Most Liked'} onClick={getMostLiked} />
         <ButtonTertiary text={'Low Cal'} onClick={getLowestCal} />
         <select
