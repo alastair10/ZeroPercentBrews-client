@@ -9,7 +9,7 @@ const Account = () => {
   const [savedBeers, setSavedBeers] = useState('');
 
   useEffect(() => {
-    fetch(`https://zero-percent-brews-api.onrender.com/api/users/user/${user_id}`, {
+    fetch(`https://zero-percent-brews-api.onrender.com/api/user/${user_id}`, {
       headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
@@ -18,16 +18,17 @@ const Account = () => {
     .then((data) => {
       setUserData(data);
     });
-  }, []);
+  }, [userData]);
 
   
   // will need to populate username instead of user_id below
   // pull in BeerContainer to map through saved results
   return (
     <>
-      <Hero message_1={'Account details for,'} message_2={userData.username} />
+      <Hero message_1={'Account details for, '} message_2={userData.username} />
       <p><strong>Username: </strong> {userData.username}</p>
       <p><strong>Email: </strong> {userData.email}</p>
+      <p><strong>Saved Beers (to_be_updated): </strong> {userData.saved}</p>
     </>
   );
 }
