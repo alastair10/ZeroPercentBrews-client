@@ -6,7 +6,6 @@ const Account = () => {
   const user_id = window.localStorage.getItem("user_id");
   const token = window.localStorage.getItem("token");
   const [userData, setUserData] = useState("");
-  
 
   useEffect(() => {
     fetch(`https://zero-percent-brews-api.onrender.com/api/user/${user_id}`, {
@@ -19,18 +18,25 @@ const Account = () => {
       .then((data) => {
         setUserData(data);
       });
-  },[token, user_id]);
+  }, [token, user_id]);
 
   return (
     <>
-      <Hero message_1={"Account details for, "} message_2={userData.username} />
-      <div className={styles.attribute}>Username: {userData.username}</div>
-      <div className={styles.attribute}>Email: {userData.email}</div>
-      <div>
-        {userData.saved.map((savedBeers) => {
-          return <p>savedBeers.title</p>
-        })}
-      </div>
+      {userData && (
+        <>
+          <Hero
+            message_1={"Account details for, "}
+            message_2={userData.username}
+          />
+          <div className={styles.attribute}>Username: {userData.username}</div>
+          <div className={styles.attribute}>Email: {userData.email}</div>
+          <div>
+            {userData.saved.map((savedBeers) => {
+              return <p>{savedBeers.title}</p>;
+            })}
+          </div>
+        </>
+      )}
     </>
   );
 };
