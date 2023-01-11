@@ -2,7 +2,7 @@ const BeerInfo = (props) => {
   return (
     <>
       {props.beerData && (
-        <>
+        <div>
           <h2 className="info__header">About {props.beerData.title}</h2>
           <div className="info__item">
             <span className="attribute">Brand:</span> {props.beerData.brand}
@@ -24,7 +24,7 @@ const BeerInfo = (props) => {
           <div className="info__item">
             <span className="attribute">Volume:</span> {props.beerData.volume}ml
           </div>
-        </>
+        </div>
       )}
     </>
   );

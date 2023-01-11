@@ -1,10 +1,10 @@
-import BeerCardExpanded from '../Components/Beer/BeerCardExpanded';
-import BeerCard from '../Components/Beer/BeerCard';
-import BeerInfo from '../Components/Beer/BeerInfo';
-import SocialProof from '../Components/SocialProof/SocialProof';
-import './BeerListing.css';
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import BeerCardExpanded from "../Components/Beer/BeerCardExpanded";
+import BeerCard from "../Components/Beer/BeerCard";
+import BeerInfo from "../Components/Beer/BeerInfo";
+import SocialProof from "../Components/SocialProof/SocialProof";
+import "./BeerListing.css";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 const BeerListing = () => {
   const { id } = useParams();
@@ -21,15 +21,13 @@ const BeerListing = () => {
 
   return (
     <>
-    {beerData &&
-      
-    <div className='beer__listing__container'>
-      <BeerCard beerInfo={beerData} parent='beerListing'  />
-      <BeerInfo beerData={beerData} />
-      <SocialProof beerData={beerData} setCommentAdd={setCommentAdd} />
-    </div>
-    }
-
+      {beerData && (
+        <div className="beer__listing__container">
+          <BeerCard beerInfo={beerData} parent="beerListing" />
+          <BeerInfo beerData={beerData} />
+          <SocialProof beerData={beerData} setCommentAdd={setCommentAdd} />
+        </div>
+      )}
     </>
   );
 };
