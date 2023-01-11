@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useAuth } from "../../Auth/AuthContext";
 import { useRouteLoaderData } from "react-router";
 
-const BeerCard = ({ beerInfo, parent, userData }) => {
+const BeerCard = ({ beerInfo, parent, userData, setUserData }) => {
   const [error, setError] = useState(undefined);
   const token = window.localStorage.getItem("token");
   const user_id = window.localStorage.getItem("user_id");
@@ -56,12 +56,14 @@ const BeerCard = ({ beerInfo, parent, userData }) => {
           beer_id: beerInfo._id,
         }),
       }
-    ).then((response) => {
-      if (response.status === 200) {
-        setIsSaved(true);
-      }
-    });
+    )
+      .then((response) => response.json())
+      .then((data) => setUserData((prevUserData) => ({
+        ...prevUserData, saved: data.saved
+      })));
   };
+
+  console.log(userData);
 
   const handleUnsave = () => {
     fetch(
@@ -85,56 +87,64 @@ const BeerCard = ({ beerInfo, parent, userData }) => {
   };
 
   return (
-    <> { userData && 
-      <div className={styles.beer}>
-      {beerInfo.staffPick && (
-        <img className={styles.badge} src={Badge} alt="staff pick badge" />
-      )}
-      <img
-        className={styles.beer__image}
-        src={beerInfo.image}
-        alt="beer"
-        loading="lazy"
-      />
-      <div className={styles.info__container}>
-        <div className={styles.beer__basic__info}>
-          <h3 className={styles.beer__title}>{beerInfo.title}</h3>
-
-          {isLoggedIn && (
-            <div className={styles.social__proof}>
-              <div className={styles.upvote}>
-                <div className={styles.upvote__score}>{kegs}</div>
-              </div>
-              <button onClick={handleKegVote} className={styles.upvote__button}>
-                ⬆️
-              </button>
-            </div>
+    <>
+      {" "}
+      {userData && (
+        <div className={styles.beer}>
+          {beerInfo.staffPick && (
+            <img className={styles.badge} src={Badge} alt="staff pick badge" />
           )}
+          <img
+            className={styles.beer__image}
+            src={beerInfo.image}
+            alt="beer"
+            loading="lazy"
+          />
+          <div className={styles.info__container}>
+            <div className={styles.beer__basic__info}>
+              <h3 className={styles.beer__title}>{beerInfo.title}</h3>
 
-          <div className={styles.basic__info__item}>
-            <span className={styles.attribute}>Type:</span> {beerInfo.type}
-          </div>
-          <div className={styles.basic__info__item}>
-            <span className={styles.attribute}>Calories:</span>{" "}
-            {beerInfo.calories} kcal
+              {isLoggedIn && (
+                <div className={styles.social__proof}>
+                  <div className={styles.upvote}>
+                    <div className={styles.upvote__score}>{kegs}</div>
+                  </div>
+                  <button
+                    onClick={handleKegVote}
+                    className={styles.upvote__button}
+                  >
+                    ⬆️
+                  </button>
+                </div>
+              )}
+
+              <div className={styles.basic__info__item}>
+                <span className={styles.attribute}>Type:</span> {beerInfo.type}
+              </div>
+              <div className={styles.basic__info__item}>
+                <span className={styles.attribute}>Calories:</span>{" "}
+                {beerInfo.calories} kcal
+              </div>
+            </div>
+
+            {parent === "beerContainer" ? (
+              <ButtonPrimary
+                path={`/beer/${beerInfo._id}`}
+                text={"More Info"}
+              />
+            ) : (
+              isLoggedIn &&
+              (parent === "beerListing" &&
+              !userData.saved.includes(beerInfo._id) ? (
+                <ButtonSecondary text={"Save"} onClick={handleSave} />
+              ) : (
+                <ButtonTertiary text={"Unsave"} onClick={handleUnsave} />
+              ))
+            )}
           </div>
         </div>
-
-        {parent === "beerContainer" ? (
-          <ButtonPrimary path={`/beer/${beerInfo._id}`} text={"More Info"} />
-        ) : (
-          isLoggedIn &&
-          (parent === "beerListing" && userData.saved.includes(beerInfo._id) ? (
-            <ButtonSecondary text={"Save"} onClick={handleSave} />
-          ) : (
-            <ButtonTertiary text={"Unsave"} onClick={handleUnsave} />
-          ))
-        )}
-      </div>
-    </div>
-    }
+      )}
     </>
-    
   );
 };
 
