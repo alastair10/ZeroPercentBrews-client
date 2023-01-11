@@ -72,6 +72,7 @@ const Account = () => {
             <label>Change Password:</label>
             <div>{message}</div>
             <input
+              placeholder='Add your new password here'
               type='password'
               value={newPassword}
               onChange={handleChange}
