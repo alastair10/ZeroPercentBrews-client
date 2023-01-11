@@ -3,7 +3,8 @@ import Loader from '../Components/Core/Loader';
 import Hero from '../Components/Core/Hero';
 import { useState, useEffect } from 'react';
 
-const Home = () => {
+
+const Home = ({userData, setUserData}) => {
   const [beerData, setBeerData] = useState();
   
   useEffect(() => {
@@ -25,7 +26,7 @@ const Home = () => {
   return (
     <>
       <Hero message_1={'Find and review,'} message_2={'hangover-free beers.'} />
-      {beerData ? <BeerContainer beerData={beerData} setBeerData={setBeerData} /> : <Loader />}
+      {beerData ? <BeerContainer beerData={beerData} setBeerData={setBeerData} userData={userData} setUserData={setUserData}/> : <Loader />}
     </>
   );
 };
