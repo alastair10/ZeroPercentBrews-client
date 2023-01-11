@@ -60,7 +60,7 @@ function App() {
             path="/account"
             element={
               <PrivateRoutes>
-                <Account />
+                <Account userData={userData} setUserData={setUserData}/>
               </PrivateRoutes>
             }
           />

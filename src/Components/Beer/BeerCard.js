@@ -63,8 +63,6 @@ const BeerCard = ({ beerInfo, parent, userData, setUserData }) => {
       })));
   };
 
-  console.log(userData);
-
   const handleUnsave = () => {
     fetch(
       `https://zero-percent-brews-api.onrender.com/api/user/${user_id}/saved`,
@@ -79,11 +77,10 @@ const BeerCard = ({ beerInfo, parent, userData, setUserData }) => {
           isSaved: true,
         }),
       }
-    ).then((response) => {
-      if (response.status === 200) {
-        setIsSaved(false);
-      }
-    });
+    ).then((response) => response.json())
+    .then((data) => setUserData((prevUserData) => ({
+      ...prevUserData, saved: data.saved
+    })));
   };
 
   return (

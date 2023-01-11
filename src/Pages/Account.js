@@ -3,24 +3,24 @@ import { useState, useEffect } from 'react';
 import ButtonPrimary from '../Components/Core/ButtonPrimary';
 import BeerCard from '../Components/Beer/BeerCard';
 
-const Account = () => {
+const Account = ({userData, setUserData}) => {
   const user_id = window.localStorage.getItem('user_id');
   const token = window.localStorage.getItem('token');
-  const [userData, setUserData] = useState('');
+  // const [userData, setUserData] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [message, setMessage] = useState('');
 
   useEffect(() => {
-    fetch(`https://zero-percent-brews-api.onrender.com/api/user/${user_id}`, {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setUserData(data);
-      });
+    // fetch(`https://zero-percent-brews-api.onrender.com/api/user/${user_id}`, {
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     Authorization: `Bearer ${token}`,
+    //   },
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     setUserData(data);
+    //   });
   }, [token, user_id]);
 
   const handleChange = (e) => {
@@ -49,6 +49,8 @@ const Account = () => {
       }
     });
   };
+
+console.log(userData.saved)
 
   return (
     <>
