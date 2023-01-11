@@ -5,8 +5,9 @@ import ButtonSecondary from "../Core/ButtonSecondary";
 import Badge from "../../images/staff_pick.png";
 import { useState } from "react";
 import { useAuth } from "../../Auth/AuthContext";
+import { useRouteLoaderData } from "react-router";
 
-const BeerCard = ({ beerInfo, parent }) => {
+const BeerCard = ({ beerInfo, parent, userData }) => {
   const [error, setError] = useState(undefined);
   const token = window.localStorage.getItem("token");
   const user_id = window.localStorage.getItem("user_id");
@@ -84,7 +85,8 @@ const BeerCard = ({ beerInfo, parent }) => {
   };
 
   return (
-    <div className={styles.beer}>
+    <> { userData && 
+      <div className={styles.beer}>
       {beerInfo.staffPick && (
         <img className={styles.badge} src={Badge} alt="staff pick badge" />
       )}
@@ -122,7 +124,7 @@ const BeerCard = ({ beerInfo, parent }) => {
           <ButtonPrimary path={`/beer/${beerInfo._id}`} text={"More Info"} />
         ) : (
           isLoggedIn &&
-          (parent === "beerListing" && !isSaved ? (
+          (parent === "beerListing" && userData.saved.includes(beerInfo._id) ? (
             <ButtonSecondary text={"Save"} onClick={handleSave} />
           ) : (
             <ButtonTertiary text={"Unsave"} onClick={handleUnsave} />
@@ -130,6 +132,9 @@ const BeerCard = ({ beerInfo, parent }) => {
         )}
       </div>
     </div>
+    }
+    </>
+    
   );
 };
 

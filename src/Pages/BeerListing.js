@@ -6,7 +6,7 @@ import './BeerListing.css';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-const BeerListing = () => {
+const BeerListing = ({userData}) => {
   const { id } = useParams();
   const [beerData, setBeerData] = useState();
   const [commentAdd, setCommentAdd] = useState();
@@ -24,7 +24,7 @@ const BeerListing = () => {
     {beerData &&
       
     <div className='beer__listing__container'>
-      <BeerCard beerInfo={beerData} parent='beerListing'  />
+      <BeerCard beerInfo={beerData} parent='beerListing' userData={userData} />
       <BeerInfo beerData={beerData} />
       <SocialProof beerData={beerData} setCommentAdd={setCommentAdd} />
     </div>
