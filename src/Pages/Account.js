@@ -65,14 +65,16 @@ const Account = ({userData, setUserData, setIsSaved}) => {
               />
               <ButtonPrimary text={'Submit'} onClick={handleSubmit} />
             </form>
-            <div>{message}</div>
+            <div className={styles.confirmation_message}>
+              {message}
+            </div>
           </div>
 
           <h2>Your saved beers:</h2>
           <div className={styles.saved_beers}>
             {userData.saved.map((savedBeer) => {
               return (
-                <BeerCard className={styles.beer_card} beerInfo={ savedBeer } parent='beerContainer' userData={userData} setUserData={setUserData} setIsSaved={setIsSaved} />
+                <BeerCard key={savedBeer._id} className={styles.beer_card} beerInfo={ savedBeer } parent='beerContainer' userData={userData} setUserData={setUserData} setIsSaved={setIsSaved} />
               );
             })}
           </div>
