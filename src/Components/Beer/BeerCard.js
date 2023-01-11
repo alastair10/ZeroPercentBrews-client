@@ -110,7 +110,7 @@ const BeerCard = ({ beerInfo, parent }) => {
           )}
 
           <div className={styles.basic__info__item}>
-            <span className={styles.attribute}>From:</span> {beerInfo.country}
+            <span className={styles.attribute}>Type:</span> {beerInfo.type}
           </div>
           <div className={styles.basic__info__item}>
             <span className={styles.attribute}>Calories:</span>{" "}
