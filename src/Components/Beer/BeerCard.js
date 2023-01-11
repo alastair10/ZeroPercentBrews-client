@@ -104,7 +104,9 @@ const BeerCard = ({ beerInfo, parent }) => {
             {beerInfo.calories} kcal
           </div>
         </div>
-        <ButtonPrimary path={`/beer/${beerInfo._id}`} text={'More Info'} />
+
+        {parent !== 'beerContainer' && <ButtonPrimary path={`/beer/${beerInfo._id}`} text={'More Info'} />}
+
       </div>
     </div>
   );
