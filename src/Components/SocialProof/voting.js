@@ -1,11 +1,10 @@
 import styles from "../Beer/BeerCard.module.css";
 import { useState } from "react";
 
-const Voting = ( {kegs, setKegs, beer_id} ) => {
+const Voting = ({ kegs, setKegs, beer_id }) => {
   const [error, setError] = useState(undefined);
   const token = window.localStorage.getItem("token");
-  
- 
+
   const handleKegUpVote = async (event) => {
     const newUpKegs = kegs + 1;
     event.preventDefault();
@@ -27,7 +26,6 @@ const Voting = ( {kegs, setKegs, beer_id} ) => {
     if (response.status === 200) {
       await response.json();
       setKegs(newUpKegs);
-      console.log(newUpKegs)
     } else {
       setError(response.status);
       console.log(error);
@@ -47,7 +45,7 @@ const Voting = ( {kegs, setKegs, beer_id} ) => {
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
-          kegs: newDownKegs
+          kegs: newDownKegs,
         }),
       }
     );
@@ -55,7 +53,7 @@ const Voting = ( {kegs, setKegs, beer_id} ) => {
     if (response.status === 200) {
       await response.json();
       setKegs(newDownKegs);
-      console.log(newDownKegs)
+      console.log(newDownKegs);
     } else {
       setError(response.status);
       console.log(error);
@@ -64,12 +62,11 @@ const Voting = ( {kegs, setKegs, beer_id} ) => {
 
   return (
     <div>
-     <button onClick={handleKegUpVote} className={styles.upvote__button}>
-        ⬆️
+      <button onClick={handleKegUpVote} className={styles.upvote__button}>
+        👍
       </button>
       <button onClick={handleKegDownVote} className={styles.upvote__button}>
-     ⬇️
-         
+        👎
       </button>
     </div>
   );

@@ -5,37 +5,7 @@ import Voting from "../SocialProof/Voting";
 import { useState } from "react";
 
 const BeerCard = ({ beerInfo }) => {
-  // const [error, setError] = useState(undefined);
-  // const token = window.localStorage.getItem("token");
-  // const id = beerInfo._id;
   const [kegs, setKegs] = useState(beerInfo.kegs);
-
-  // const handleKegVote = async (event) => {
-  //   const newKegs = kegs + 1;
-  //   event.preventDefault();
-
-  //   let response = await fetch(
-  //     `https://zero-percent-brews-api.onrender.com/api/beers/${id}/kegs`,
-  //     {
-  //       method: "PATCH",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //       body: JSON.stringify({
-  //         kegs: newKegs,
-  //       }),
-  //     }
-  //   );
-
-  //   if (response.status === 200) {
-  //     await response.json();
-  //     setKegs(newKegs);
-  //   } else {
-  //     setError(response.status);
-  //     console.log(error);
-  //   }
-  // };
 
   return (
     <div className={styles.beer}>
@@ -52,8 +22,8 @@ const BeerCard = ({ beerInfo }) => {
         <div className={styles.beer__basic__info}>
           <h3 className={styles.beer__title}>{beerInfo.title}</h3>
           <div className={styles.social__proof}>
-          <div className={styles.upvote__score}>{kegs}</div>
-            <Voting kegs={kegs} setKegs={setKegs} beer_id={beerInfo._id}/>
+            <div className={styles.upvote__score}>{kegs}</div>
+            <Voting kegs={kegs} setKegs={setKegs} beer_id={beerInfo._id} />
           </div>
 
           <div className={styles.basic__info__item}>
