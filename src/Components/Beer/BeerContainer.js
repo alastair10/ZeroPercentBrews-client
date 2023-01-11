@@ -57,7 +57,7 @@ const BeerContainer = ({ beerData, setBeerData, userData, setUserData }) => {
           onChange={getBeersByType}
           className={refinement === 'type' ? styles.refinement_dropdown_selected : styles.refinement_dropdown }
         >
-          <option value="" disabled selected hidden>Type</option>
+          <option value="" disabled>Type</option>
           <option value="Ale">Ale</option>
           <option value="Cider">Cider</option>
           <option value="Lager">Lager</option>
