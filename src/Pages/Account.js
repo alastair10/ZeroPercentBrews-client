@@ -65,7 +65,9 @@ const Account = ({userData, setUserData, setIsSaved}) => {
               />
               <ButtonPrimary text={'Submit'} onClick={handleSubmit} />
             </form>
-            <div>{message}</div>
+            <div className={styles.confirmation_message}>
+              {message}
+            </div>
           </div>
 
           <h2>Your saved beers:</h2>
