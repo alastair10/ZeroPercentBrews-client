@@ -2,7 +2,7 @@ import Hero from '../Components/Core/Hero';
 import { useState } from 'react';
 import ButtonPrimary from '../Components/Core/ButtonPrimary';
 import BeerCard from '../Components/Beer/BeerCard';
-import styles from './Access.module.css'
+import styles from './Account.module.css'
 
 const Account = ({userData, setUserData, setIsSaved}) => {
   const user_id = window.localStorage.getItem('user_id');
@@ -45,26 +45,30 @@ const Account = ({userData, setUserData, setIsSaved}) => {
             message_1={'Account details for:'}
             message_2={userData.username}
           />
-          <h2 className='beer__title'>Account information:</h2>
-          <div className='info__item'>
-            <span className='attribute'>Username: </span>
+          <h2>Account information:</h2>
+          <div>
+            <span>Username: </span>
             {userData.username}
           </div>
-          <div className='info__item'>
-            <span className='attribute'>Email:</span> {userData.email}
+          <div>
+            <span>Email:</span> {userData.email}
           </div>
-          <form>
-            <label>Change Password:</label>
+
+          <div className={styles.change_password}>
+            <form className={styles.password_form}>
+              <label>Change Password:</label>
+              <input
+                placeholder='Add your new password here'
+                type='password'
+                value={newPassword}
+                onChange={handleChange}
+              />
+              <ButtonPrimary text={'Submit'} onClick={handleSubmit} />
+            </form>
             <div>{message}</div>
-            <input
-              placeholder='Add your new password here'
-              type='password'
-              value={newPassword}
-              onChange={handleChange}
-            />
-            <ButtonPrimary text={'Submit'} onClick={handleSubmit} />
-          </form>
-          <h2 className='beer__title'>Your saved beers:</h2>
+          </div>
+
+          <h2>Your saved beers:</h2>
           <div className={styles.saved_beers}>
             {userData.saved.map((savedBeer) => {
               return (
