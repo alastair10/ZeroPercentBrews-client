@@ -107,7 +107,7 @@ const BeerCard = ({ beerInfo, parent, userData, setUserData, setIsSaved }) => {
 
   return (
     <>
-      {userData && (
+      
         <div className={styles.beer}>
           {beerInfo.staffPick && (
             <img className={styles.badge} src={Badge} alt="staff pick badge" />
@@ -146,17 +146,16 @@ const BeerCard = ({ beerInfo, parent, userData, setUserData, setIsSaved }) => {
                 text={"More Info"}
               />
             ) : (
-              isLoggedIn &&
+              userData && (isLoggedIn &&
               (parent === "beerListing" &&
                 !savedBeers.includes(beerInfo._id) ? (
                 <ButtonSecondary text={"Save"} onClick={handleSave} />
               ) : (
                 <ButtonTertiary text={"Unsave"} onClick={handleUnsave} />
-              ))
+              )))
             )}
           </div>
         </div>
-      )}
     </>
   );
 };
