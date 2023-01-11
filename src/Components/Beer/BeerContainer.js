@@ -53,11 +53,11 @@ const BeerContainer = ({ beerData, setBeerData, userData, setUserData }) => {
    
         {refinement === 'cals' ? <ButtonSecondary text={'Low Cal'} /> : <ButtonTertiary text={'Low Cal'} onClick={getLowestCal} />}
         
-        <select
+        <select defaultValue={"default"}
           onChange={getBeersByType}
           className={refinement === 'type' ? styles.refinement_dropdown_selected : styles.refinement_dropdown }
         >
-          <option value="" disabled>Type</option>
+          <option value="default" disabled>Type</option>
           <option value="Ale">Ale</option>
           <option value="Cider">Cider</option>
           <option value="Lager">Lager</option>
