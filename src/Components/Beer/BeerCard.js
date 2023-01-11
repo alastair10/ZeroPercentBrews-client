@@ -12,12 +12,12 @@ const BeerCard = ({ beerInfo, parent, userData, setUserData, setIsSaved }) => {
   const token = window.localStorage.getItem('token');
   const user_id = window.localStorage.getItem('user_id');
   const id = beerInfo._id;
-  const [kegs, setKegs] = useState(beerInfo.kegs);
+  const [upvotes, setUpvotes] = useState(beerInfo.upvotes);
   const [savedBeers, setSavedBeers] = useState([]);
   const { isLoggedIn } = useAuth();
 
   const handleKegVote = async (event) => {
-    const newKegs = kegs + 1;
+    const newUpvotes = upvotes + 1;
     event.preventDefault();
 
     let response = await fetch(
@@ -29,14 +29,14 @@ const BeerCard = ({ beerInfo, parent, userData, setUserData, setIsSaved }) => {
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
-          kegs: newKegs,
+          kegs: newUpvotes,
         }),
       }
     );
 
     if (response.status === 200) {
       await response.json();
-      setKegs(newKegs);
+      setUpvotes(newUpvotes);
     } else {
       setError(response.status);
       console.log(error);
@@ -125,7 +125,7 @@ const BeerCard = ({ beerInfo, parent, userData, setUserData, setIsSaved }) => {
               {isLoggedIn && (
                 <div className={styles.social__proof}>
                   <div className={styles.upvote}>
-                    <div className={styles.upvote__score}>{kegs}</div>
+                    <div className={styles.upvote__score}>{upvotes}</div>
                   </div>
                   <ButtonUpVote handleKegVote={handleKegVote} />
                 </div>
