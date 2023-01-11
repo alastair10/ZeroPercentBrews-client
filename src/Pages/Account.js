@@ -42,16 +42,16 @@ const Account = ({userData, setUserData, setIsSaved}) => {
       {userData && (
         <>
           <Hero
-            message_1={'Account details for:'}
-            message_2={userData.username}
+            message_1={`${userData.username}'s Account`}
+            message_2='& Saved Beers'
           />
           <h2>Account information:</h2>
           <div>
-            <span>Username: </span>
+            <span className={styles.user_data}>Username: </span>
             {userData.username}
           </div>
           <div>
-            <span>Email:</span> {userData.email}
+            <span className={styles.user_data}>Email:</span> {userData.email}
           </div>
 
           <div className={styles.change_password}>
@@ -72,7 +72,7 @@ const Account = ({userData, setUserData, setIsSaved}) => {
           <div className={styles.saved_beers}>
             {userData.saved.map((savedBeer) => {
               return (
-                <BeerCard beerInfo={ savedBeer } parent='beerContainer' userData={userData} setUserData={setUserData} setIsSaved={setIsSaved} />
+                <BeerCard className={styles.beer_card} beerInfo={ savedBeer } parent='beerContainer' userData={userData} setUserData={setUserData} setIsSaved={setIsSaved} />
               );
             })}
           </div>
