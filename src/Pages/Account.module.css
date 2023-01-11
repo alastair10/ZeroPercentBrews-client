@@ -1,0 +1,43 @@
+.saved_beers {
+  max-width: 500px;
+  margin-bottom: 50px;
+}
+
+.change_password {
+  margin: 20px;
+}
+
+.password_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.user_data {
+  font-weight: 700;
+}
+
+.beer_card {
+  margin: 10px;
+}
+
+@media only screen and (min-width: 425px) {
+  input {
+    border: 2px solid #1E6A9C;
+    border-radius: 8px;
+    width: 285px;
+    height: 36px;
+  }
+
+  .saved_beers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 900px;
+    margin-bottom: 50px;
+  }
+
+
+}

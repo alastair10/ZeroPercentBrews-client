@@ -1,4 +1,3 @@
-import BeerCardExpanded from '../Components/Beer/BeerCardExpanded';
 import BeerCard from '../Components/Beer/BeerCard';
 import BeerInfo from '../Components/Beer/BeerInfo';
 import SocialProof from '../Components/SocialProof/SocialProof';
@@ -6,7 +5,7 @@ import './BeerListing.css';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-const BeerListing = () => {
+const BeerListing = ({userData, setUserData, setIsSaved }) => {
   const { id } = useParams();
   const [beerData, setBeerData] = useState();
   const [commentAdd, setCommentAdd] = useState();
@@ -24,7 +23,7 @@ const BeerListing = () => {
     {beerData &&
       
     <div className='beer__listing__container'>
-      <BeerCard beerInfo={beerData} parent='beerListing'  />
+      <BeerCard beerInfo={beerData} parent='beerListing' userData={userData} setUserData={setUserData} setIsSaved={setIsSaved} />
       <BeerInfo beerData={beerData} />
       <SocialProof beerData={beerData} setCommentAdd={setCommentAdd} />
     </div>

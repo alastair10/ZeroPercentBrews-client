@@ -1,27 +1,14 @@
 import Hero from '../Components/Core/Hero';
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import ButtonPrimary from '../Components/Core/ButtonPrimary';
+import BeerCard from '../Components/Beer/BeerCard';
+import styles from './Account.module.css'
 
-const Account = () => {
+const Account = ({userData, setUserData, setIsSaved}) => {
   const user_id = window.localStorage.getItem('user_id');
   const token = window.localStorage.getItem('token');
-  const [userData, setUserData] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [message, setMessage] = useState('');
-
-  useEffect(() => {
-    fetch(`https://zero-percent-brews-api.onrender.com/api/user/${user_id}`, {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setUserData(data);
-      });
-  }, [token, user_id]);
 
   const handleChange = (e) => {
     setNewPassword(e.target.value);
@@ -55,37 +42,37 @@ const Account = () => {
       {userData && (
         <>
           <Hero
-            message_1={'Account details for:'}
-            message_2=<strong className='review__title'>
-              {userData.username}
-            </strong>
+            message_1={`${userData.username}'s Account`}
+            message_2='& Saved Beers'
           />
-          <h2 className='beer__title'>Account information:</h2>
-          <div className='info__item'>
-            <span className='attribute'>Username: </span>
+          <h2>Account information:</h2>
+          <div>
+            <span className={styles.user_data}>Username: </span>
             {userData.username}
           </div>
-          <div className='info__item'>
-            <span className='attribute'>Email:</span> {userData.email}
-          </div>
-          <form>
-            <label>Change Password:</label>
-            <div>{message}</div>
-            <input
-              placeholder='Add your new password here'
-              type='password'
-              value={newPassword}
-              onChange={handleChange}
-            />
-            <ButtonPrimary text={'Submit'} onClick={handleSubmit} />
-          </form>
-          <h2 className='beer__title'>Your saved beers:</h2>
           <div>
-            {userData.saved.map((savedBeers) => {
+            <span className={styles.user_data}>Email:</span> {userData.email}
+          </div>
+
+          <div className={styles.change_password}>
+            <form className={styles.password_form}>
+              <label>Change Password:</label>
+              <input
+                placeholder='Add your new password here'
+                type='password'
+                value={newPassword}
+                onChange={handleChange}
+              />
+              <ButtonPrimary text={'Submit'} onClick={handleSubmit} />
+            </form>
+            <div>{message}</div>
+          </div>
+
+          <h2>Your saved beers:</h2>
+          <div className={styles.saved_beers}>
+            {userData.saved.map((savedBeer) => {
               return (
-                <Link key={savedBeers.title} to={`/beer/${savedBeers._id}`}>
-                  <p className='attribute'>{savedBeers.title}</p>
-                </Link>
+                <BeerCard className={styles.beer_card} beerInfo={ savedBeer } parent='beerContainer' userData={userData} setUserData={setUserData} setIsSaved={setIsSaved} />
               );
             })}
           </div>
