@@ -105,15 +105,17 @@ const BeerCard = ({ beerInfo, parent }) => {
           </div>
         </div>
 
-        {parent === 'beerContainer' && <ButtonPrimary path={`/beer/${beerInfo._id}`} text={'More Info'} />}
+        {parent === 'beerContainer' ? <ButtonPrimary path={`/beer/${beerInfo._id}`} text={'More Info'} /> :
 
-        {parent === 'beerListing' &&
+          parent === 'beerListing' &&
 
           !isSaved ?
           <ButtonSecondary text={'Save'} onClick={handleSave} /> :
           <ButtonTertiary text={'Unsave'} onClick={handleUnsave} />
-
+        
+        
         }
+
 
       </div>
     </div>

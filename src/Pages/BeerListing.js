@@ -19,15 +19,12 @@ const BeerListing = () => {
       });
   }, [id, commentAdd]);
 
-console.log(beerData)
-
   return (
     <>
     {beerData &&
       
     <div className='beer__listing__container'>
-      {/* <BeerCardExpanded beerData={beerData} /> */}
-      <BeerCard beerInfo={beerData}  />
+      <BeerCard beerInfo={beerData} parent='beerListing'  />
       <BeerInfo beerData={beerData} />
       <SocialProof beerData={beerData} setCommentAdd={setCommentAdd} />
     </div>
