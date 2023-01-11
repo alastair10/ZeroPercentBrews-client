@@ -72,7 +72,7 @@ const Account = ({userData, setUserData, setIsSaved}) => {
           <div className={styles.saved_beers}>
             {userData.saved.map((savedBeer) => {
               return (
-                <BeerCard className={styles.beer_card} beerInfo={ savedBeer } parent='beerContainer' userData={userData} setUserData={setUserData} setIsSaved={setIsSaved} />
+                <BeerCard key={savedBeer._id} className={styles.beer_card} beerInfo={ savedBeer } parent='beerContainer' userData={userData} setUserData={setUserData} setIsSaved={setIsSaved} />
               );
             })}
           </div>
