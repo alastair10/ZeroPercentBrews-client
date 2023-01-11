@@ -1,27 +1,13 @@
 import Hero from '../Components/Core/Hero';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import ButtonPrimary from '../Components/Core/ButtonPrimary';
 import BeerCard from '../Components/Beer/BeerCard';
 
-const Account = ({userData, setUserData}) => {
+const Account = ({userData, setUserData, setIsSaved}) => {
   const user_id = window.localStorage.getItem('user_id');
   const token = window.localStorage.getItem('token');
-  // const [userData, setUserData] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [message, setMessage] = useState('');
-
-  useEffect(() => {
-    // fetch(`https://zero-percent-brews-api.onrender.com/api/user/${user_id}`, {
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     Authorization: `Bearer ${token}`,
-    //   },
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     setUserData(data);
-    //   });
-  }, [token, user_id]);
 
   const handleChange = (e) => {
     setNewPassword(e.target.value);
@@ -50,17 +36,13 @@ const Account = ({userData, setUserData}) => {
     });
   };
 
-console.log(userData.saved)
-
   return (
     <>
       {userData && (
         <>
           <Hero
             message_1={'Account details for:'}
-            message_2=<strong className='review__title'>
-              {userData.username}
-            </strong>
+            message_2={userData.username}
           />
           <h2 className='beer__title'>Account information:</h2>
           <div className='info__item'>
@@ -85,7 +67,7 @@ console.log(userData.saved)
           <div>
             {userData.saved.map((savedBeer) => {
               return (
-                <BeerCard beerInfo={ savedBeer } parent='beerContainer'/>
+                <BeerCard beerInfo={ savedBeer } parent='beerContainer' userData={userData} setUserData={setUserData} setIsSaved={setIsSaved} />
               );
             })}
           </div>

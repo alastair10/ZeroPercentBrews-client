@@ -23,6 +23,7 @@ function App() {
   const user_id = window.localStorage.getItem("user_id");
   const token = window.localStorage.getItem("token");
   const [userData, setUserData] = useState("");
+  const [isSaved, setIsSaved] = useState(false);
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -37,7 +38,7 @@ function App() {
           setUserData(data);
         });
     }
-  }, [isLoggedIn, token, user_id]);
+  }, [isLoggedIn, token, user_id, isSaved]);
 
   return (
     <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn, setTokens }}>
@@ -53,14 +54,14 @@ function App() {
           <Route
             path="/beer/:id"
             element={
-              <BeerListing userData={userData} setUserData={setUserData} />
+              <BeerListing userData={userData} setUserData={setUserData} setIsSaved={setIsSaved} />
             }
           />
           <Route
             path="/account"
             element={
               <PrivateRoutes>
-                <Account userData={userData} setUserData={setUserData}/>
+                <Account userData={userData} setUserData={setUserData} setIsSaved={setIsSaved} />
               </PrivateRoutes>
             }
           />

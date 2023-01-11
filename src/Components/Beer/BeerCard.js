@@ -3,17 +3,16 @@ import ButtonPrimary from "../Core/ButtonPrimary";
 import ButtonTertiary from "../Core/ButtonTertiary";
 import ButtonSecondary from "../Core/ButtonSecondary";
 import Badge from "../../images/staff_pick.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "../../Auth/AuthContext";
-import { useRouteLoaderData } from "react-router";
 
-const BeerCard = ({ beerInfo, parent, userData, setUserData }) => {
+const BeerCard = ({ beerInfo, parent, userData, setUserData, setIsSaved }) => {
   const [error, setError] = useState(undefined);
   const token = window.localStorage.getItem("token");
   const user_id = window.localStorage.getItem("user_id");
   const id = beerInfo._id;
   const [kegs, setKegs] = useState(beerInfo.kegs);
-  const [isSaved, setIsSaved] = useState(false);
+  const [savedBeers, setSavedBeers] = useState([]);
   const { isLoggedIn } = useAuth();
 
   const handleKegVote = async (event) => {
@@ -43,8 +42,8 @@ const BeerCard = ({ beerInfo, parent, userData, setUserData }) => {
     }
   };
 
-  const handleSave = () => {
-    fetch(
+  const handleSave = async () => {
+    let response = await fetch(
       `https://zero-percent-brews-api.onrender.com/api/user/${user_id}/saved`,
       {
         method: "PATCH",
@@ -57,14 +56,21 @@ const BeerCard = ({ beerInfo, parent, userData, setUserData }) => {
         }),
       }
     )
-      .then((response) => response.json())
-      .then((data) => setUserData((prevUserData) => ({
-        ...prevUserData, saved: data.saved
-      })));
+
+    if (response.ok) {
+      let data = await response.json();
+
+      setUserData((prevUserData) => ({
+        ...prevUserData, 
+        saved: data.saved
+      }))
+
+      setIsSaved(prev => !prev)
+    }
   };
 
-  const handleUnsave = () => {
-    fetch(
+  const handleUnsave = async () => {
+    let response = await fetch(
       `https://zero-percent-brews-api.onrender.com/api/user/${user_id}/saved`,
       {
         method: "PATCH",
@@ -77,15 +83,29 @@ const BeerCard = ({ beerInfo, parent, userData, setUserData }) => {
           isSaved: true,
         }),
       }
-    ).then((response) => response.json())
-    .then((data) => setUserData((prevUserData) => ({
-      ...prevUserData, saved: data.saved
-    })));
+    )
+
+    if (response.ok) {
+      let data = await response.json();
+
+      setUserData((prevUserData) => ({
+        ...prevUserData, saved: data.saved
+      }))
+
+      setIsSaved(prev => !prev)
+    }
   };
+
+  useEffect(() => {
+    if (userData) {
+      let saved = userData.saved.map(element => element._id);
+      setSavedBeers(saved);
+    }
+  }, [userData])
+
 
   return (
     <>
-      {" "}
       {userData && (
         <div className={styles.beer}>
           {beerInfo.staffPick && (
@@ -132,7 +152,7 @@ const BeerCard = ({ beerInfo, parent, userData, setUserData }) => {
             ) : (
               isLoggedIn &&
               (parent === "beerListing" &&
-              !userData.saved.includes(beerInfo._id) ? (
+                !savedBeers.includes(beerInfo._id) ? (
                 <ButtonSecondary text={"Save"} onClick={handleSave} />
               ) : (
                 <ButtonTertiary text={"Unsave"} onClick={handleUnsave} />
