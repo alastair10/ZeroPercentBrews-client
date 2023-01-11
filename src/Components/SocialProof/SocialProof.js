@@ -73,6 +73,7 @@ const SocialProof = (props) => {
                   author={comment.user_id.username}
                   key={comment._id}
                   body={comment.body}
+                  date={comment.createdAt}
                 />
               );
             })}
