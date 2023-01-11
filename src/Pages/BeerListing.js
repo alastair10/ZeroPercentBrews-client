@@ -1,3 +1,4 @@
+
 import BeerCard from '../Components/Beer/BeerCard';
 import BeerInfo from '../Components/Beer/BeerInfo';
 import SocialProof from '../Components/SocialProof/SocialProof';
@@ -20,15 +21,15 @@ const BeerListing = ({userData, setUserData, setIsSaved }) => {
 
   return (
     <>
-    {beerData &&
-      
-    <div className='beer__listing__container'>
-      <BeerCard beerInfo={beerData} parent='beerListing' userData={userData} setUserData={setUserData} setIsSaved={setIsSaved} />
-      <BeerInfo beerData={beerData} />
-      <SocialProof beerData={beerData} setCommentAdd={setCommentAdd} />
-    </div>
-    }
-
+      {beerData && (
+        <div className="beer__listing__container">
+          <div className="bCard_bInfo">
+            <BeerCard beerInfo={beerData} parent="beerListing" />
+            <BeerInfo beerData={beerData} />
+          </div>
+          <SocialProof beerData={beerData} setCommentAdd={setCommentAdd} />
+        </div>
+      )}
     </>
   );
 };
