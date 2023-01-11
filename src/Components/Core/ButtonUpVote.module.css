@@ -1,0 +1,27 @@
+.upvote__button {
+  display: block;
+  font-size: 2rem;
+  margin: 0;
+  border: none;
+  border-radius: 5px;
+  background-color: inherit;
+  cursor: pointer;
+  transition: background-color .5s, scale .2s;
+}
+
+.up {
+  fill-rule: evenodd;
+  clip-rule: evenodd;
+  stroke-linejoin: round;
+  stroke-miterlimit: 4;
+  width: 42px;
+}
+
+.fill {
+  fill: rgb(193, 214, 227);
+}
+
+.outline {
+  fill: rgb(32, 105, 156);
+}
+
