@@ -6,7 +6,7 @@ import ButtonTertiary from '../Core/ButtonTertiary';
 
 const BeerContainer = ({ beerData, setBeerData }) => {
   const [refinement, setRefinement] = useState('default');
-  const defaultResults = beerData;
+  const [defaultResults, setDefaultResults] = useState(beerData);
 
   const getMostLiked = () => {
     setRefinement('liked');
