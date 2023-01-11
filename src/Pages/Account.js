@@ -2,6 +2,7 @@ import Hero from '../Components/Core/Hero';
 import { useState } from 'react';
 import ButtonPrimary from '../Components/Core/ButtonPrimary';
 import BeerCard from '../Components/Beer/BeerCard';
+import styles from './Access.module.css'
 
 const Account = ({userData, setUserData, setIsSaved}) => {
   const user_id = window.localStorage.getItem('user_id');
@@ -64,7 +65,7 @@ const Account = ({userData, setUserData, setIsSaved}) => {
             <ButtonPrimary text={'Submit'} onClick={handleSubmit} />
           </form>
           <h2 className='beer__title'>Your saved beers:</h2>
-          <div>
+          <div className={styles.saved_beers}>
             {userData.saved.map((savedBeer) => {
               return (
                 <BeerCard beerInfo={ savedBeer } parent='beerContainer' userData={userData} setUserData={setUserData} setIsSaved={setIsSaved} />
