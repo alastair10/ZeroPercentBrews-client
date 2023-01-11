@@ -1,5 +1,7 @@
 import styles from './BeerCard.module.css';
 import ButtonPrimary from '../Core/ButtonPrimary';
+import ButtonTertiary from "../Core/ButtonTertiary";
+import ButtonSecondary from "../Core/ButtonSecondary";
 import Badge from '../../images/staff_pick.png'
 import { useState } from "react";
 
@@ -33,7 +35,7 @@ const BeerCard = ({ beerInfo, parent }) => {
       setError(response.status);
       console.log(error)
     }
-    
+
   };
 
   console.log(parent)
@@ -47,8 +49,8 @@ const BeerCard = ({ beerInfo, parent }) => {
       },
       body: JSON.stringify({
         beer_id: beerInfo._id
-         }),
-      }
+      }),
+    }
     )
       .then((response) => {
         if (response.status === 200) {
@@ -67,8 +69,8 @@ const BeerCard = ({ beerInfo, parent }) => {
       body: JSON.stringify({
         beer_id: beerInfo._id,
         isSaved: true
-         }),
-      }
+      }),
+    }
     )
       .then((response) => {
         if (response.status === 200) {
@@ -105,7 +107,15 @@ const BeerCard = ({ beerInfo, parent }) => {
           </div>
         </div>
 
-        {parent !== 'beerContainer' && <ButtonPrimary path={`/beer/${beerInfo._id}`} text={'More Info'} />}
+        {parent === 'beerContainer' && <ButtonPrimary path={`/beer/${beerInfo._id}`} text={'More Info'} />}
+
+        {parent === 'beerListing' &&
+
+          !isSaved ?
+          <ButtonSecondary text={'Save'} onClick={handleSave} /> :
+          <ButtonTertiary text={'Unsave'} onClick={handleUnsave} />
+
+        }
 
       </div>
     </div>
