@@ -54,6 +54,7 @@ const SocialProof = (props) => {
             <h2>What's brewin'?</h2>
             <form>
               <input
+                placeholder='Add your review here!'
                 type='text'
                 name='comment'
                 value={commentBody}
