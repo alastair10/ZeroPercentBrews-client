@@ -1,4 +1,5 @@
 import styles from "./BeerCard.module.css";
+import ButtonUpVote from '../Core/ButtonUpVote';
 import ButtonPrimary from "../Core/ButtonPrimary";
 import ButtonTertiary from "../Core/ButtonTertiary";
 import ButtonSecondary from "../Core/ButtonSecondary";
@@ -8,8 +9,8 @@ import { useAuth } from "../../Auth/AuthContext";
 
 const BeerCard = ({ beerInfo, parent, userData, setUserData, setIsSaved }) => {
   const [error, setError] = useState(undefined);
-  const token = window.localStorage.getItem("token");
-  const user_id = window.localStorage.getItem("user_id");
+  const token = window.localStorage.getItem('token');
+  const user_id = window.localStorage.getItem('user_id');
   const id = beerInfo._id;
   const [kegs, setKegs] = useState(beerInfo.kegs);
   const [savedBeers, setSavedBeers] = useState([]);
@@ -22,9 +23,9 @@ const BeerCard = ({ beerInfo, parent, userData, setUserData, setIsSaved }) => {
     let response = await fetch(
       `https://zero-percent-brews-api.onrender.com/api/beers/${id}/kegs`,
       {
-        method: "PATCH",
+        method: 'PATCH',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
@@ -46,9 +47,9 @@ const BeerCard = ({ beerInfo, parent, userData, setUserData, setIsSaved }) => {
     let response = await fetch(
       `https://zero-percent-brews-api.onrender.com/api/user/${user_id}/saved`,
       {
-        method: "PATCH",
+        method: 'PATCH',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
@@ -73,9 +74,9 @@ const BeerCard = ({ beerInfo, parent, userData, setUserData, setIsSaved }) => {
     let response = await fetch(
       `https://zero-percent-brews-api.onrender.com/api/user/${user_id}/saved`,
       {
-        method: "PATCH",
+        method: 'PATCH',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
@@ -126,12 +127,7 @@ const BeerCard = ({ beerInfo, parent, userData, setUserData, setIsSaved }) => {
                   <div className={styles.upvote}>
                     <div className={styles.upvote__score}>{kegs}</div>
                   </div>
-                  <button
-                    onClick={handleKegVote}
-                    className={styles.upvote__button}
-                  >
-                    ⬆️
-                  </button>
+                  <ButtonUpVote handleKegVote={handleKegVote} />
                 </div>
               )}
 

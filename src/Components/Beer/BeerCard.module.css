@@ -33,6 +33,10 @@
   max-width: 200px;
 }
 
+.beer__info {
+  padding-bottom: 10px;
+}
+
 .info__container {
   display: flex;
   flex-direction: column;
@@ -45,16 +49,20 @@
   align-self: center;
 }
 
+.type_calories__container {
+  justify-self: end;
+}
+
 .beer__basic__info {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 20px;
 }
 
 .social__proof {
   display: flex;
   justify-content: center;
+  align-items: center;
+  padding-top: 10px;
 }
 
 .upvote {
@@ -70,35 +78,11 @@
   color: var(--orange);
 }
 
-.upvote__star {
-  display: block;
-  margin-bottom: 3px;
-}
-
 .review__author {
   color: var(--blue);
   font-weight: 700;
   margin: 10px 0;
   text-align: right;
-}
-
-.upvote__button {
-  display: block;
-  font-size: 2rem;
-  margin: 0;
-  border: none;
-  border-radius: 5px;
-  background-color: inherit;
-  cursor: pointer;
-  transition: background-color .5s, scale .2s;
-}
-
-.upvote__button:hover {
-  background-color: #BBD2E0;
-}
-
-.upvote__button:active {
-  scale: 0.8;
 }
 
 .attribute {
