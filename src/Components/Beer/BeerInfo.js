@@ -1,8 +1,10 @@
+import styles from "./BeerInfo.module.css";
+
 const BeerInfo = (props) => {
   return (
     <>
       {props.beerData && (
-        <div>
+        <div className={styles.beerInfo}>
           <h2 className="info__header">About {props.beerData.title}</h2>
           <div className="info__item">
             <span className="attribute">Brand:</span> {props.beerData.brand}

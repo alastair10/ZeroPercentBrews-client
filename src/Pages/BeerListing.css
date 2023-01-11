@@ -11,3 +11,15 @@
 .attribute {
   font-weight: bold;
 }
+
+.bCard_bInfo {
+  border: 1px solid red;
+  }
+
+  @media only screen and (min-width: 425px) {
+    .bCard_bInfo{
+      display:flex;
+      flex-direction: row;
+    }
+  }
+

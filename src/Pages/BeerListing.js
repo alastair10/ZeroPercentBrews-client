@@ -23,8 +23,10 @@ const BeerListing = () => {
     <>
       {beerData && (
         <div className="beer__listing__container">
-          <BeerCard beerInfo={beerData} parent="beerListing" />
-          <BeerInfo beerData={beerData} />
+          <div className="bCard_bInfo">
+            <BeerCard beerInfo={beerData} parent="beerListing" />
+            <BeerInfo beerData={beerData} />
+          </div>
           <SocialProof beerData={beerData} setCommentAdd={setCommentAdd} />
         </div>
       )}
