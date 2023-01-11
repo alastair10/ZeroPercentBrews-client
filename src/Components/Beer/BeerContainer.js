@@ -33,7 +33,7 @@ const BeerContainer = ({ beerData, setBeerData }) => {
 
     let type = event.target.value;
 
-    fetch(`https://zero-percent-brews-api.onrender.com/api/beers/${type}`)
+    fetch(`https://zero-percent-brews-api.onrender.com/api/beers/type/${type}`)
       .then((response) => response.json())
       .then((data) => {
         setBeerData(data);
