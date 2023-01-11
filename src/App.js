@@ -42,8 +42,8 @@ function App() {
         <Routes>
           <Route path='/register' element={<Register />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/' element={<Home />} />
-          <Route path='/beer/:id' element={<BeerListing userData={userData}/>} />
+          <Route path='/' element={<Home userData={userData} setUserData={setUserData}/>} />
+          <Route path='/beer/:id' element={<BeerListing userData={userData} setUserData={setUserData}/>} />
           <Route
             path='/account'
             element={

@@ -4,7 +4,7 @@ import BeerCard from './BeerCard';
 import ButtonSecondary from '../Core/ButtonSecondary';
 import ButtonTertiary from '../Core/ButtonTertiary';
 
-const BeerContainer = ({ beerData, setBeerData }) => {
+const BeerContainer = ({ beerData, setBeerData, userData, setUserData }) => {
   const [refinement, setRefinement] = useState('default');
   const [defaultResults, setDefaultResults] = useState(beerData);
 
@@ -66,7 +66,7 @@ const BeerContainer = ({ beerData, setBeerData }) => {
       </div>
       <div className={styles.beer_container}>
         {beerData.map((beer) => {
-          return <BeerCard key={beer._id} beerInfo={beer} parent='beerContainer' />;
+          return <BeerCard key={beer._id} beerInfo={beer} parent='beerContainer' userData={userData} setUserData={setUserData}/>;
         })}
       </div>
     </>
