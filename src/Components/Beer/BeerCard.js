@@ -38,8 +38,6 @@ const BeerCard = ({ beerInfo, parent }) => {
 
   };
 
-  console.log(parent)
-
   const handleSave = () => {
     fetch(`https://zero-percent-brews-api.onrender.com/api/user/${user_id}/saved`, {
       method: "PATCH",

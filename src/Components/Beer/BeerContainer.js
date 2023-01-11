@@ -66,7 +66,7 @@ const BeerContainer = ({ beerData, setBeerData }) => {
       </div>
       <div className={styles.beer_container}>
         {beerData.map((beer) => {
-          return <BeerCard key={beer._id} beerInfo={beer} parent={'beerContainer'} />;
+          return <BeerCard key={beer._id} beerInfo={beer} parent='beerContainer' />;
         })}
       </div>
     </>
