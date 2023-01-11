@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import styles from './BeerContainer.module.css';
 import BeerCard from './BeerCard';
 import ButtonSecondary from '../Core/ButtonSecondary';
@@ -6,7 +6,7 @@ import ButtonTertiary from '../Core/ButtonTertiary';
 
 const BeerContainer = ({ beerData, setBeerData }) => {
   const [refinement, setRefinement] = useState('default');
-  const [defaultResults, setDefaultResults] = useState(beerData);
+  const defaultResults = beerData;
 
   const getMostLiked = () => {
     setRefinement('liked');
