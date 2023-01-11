@@ -12,14 +12,15 @@
   font-weight: bold;
 }
 
-.bCard_bInfo {
-  border: 1px solid red;
+@media only screen and (min-width: 800px) {
+  .beer__listing__container {
+    max-width: 800px;
+    align-items: center;
   }
 
-  @media only screen and (min-width: 425px) {
-    .bCard_bInfo{
-      display:flex;
-      flex-direction: row;
-    }
+  .bCard_bInfo {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
   }
-
+}

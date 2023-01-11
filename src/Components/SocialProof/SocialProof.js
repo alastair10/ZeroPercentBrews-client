@@ -1,6 +1,7 @@
 import Rating from './Rating';
 import ReviewCard from './ReviewCard';
 import ButtonPrimary from '../Core/ButtonPrimary';
+import './SocialProof.css';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -18,23 +19,25 @@ const SocialProof = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch(`https://zero-percent-brews-api.onrender.com/api/beers/${id}/comments`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({
-        comment: {
-          user_id: user_id,
-          body: commentBody,
-      },
-         }),
+    fetch(
+      `https://zero-percent-brews-api.onrender.com/api/beers/${id}/comments`,
+      {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          comment: {
+            user_id: user_id,
+            body: commentBody,
+          },
+        }),
       }
     )
       .then((response) => {
         if (response.status === 200) {
-          setCommentBody("");
+          setCommentBody('');
           props.setCommentAdd(true);
         }
       })
@@ -47,7 +50,7 @@ const SocialProof = (props) => {
   return (
     <>
       {props.beerData && (
-        <>
+        <div className='social-proof'>
           <Rating beerData={props.beerData} />
 
           <div className='comment_box'>
@@ -77,7 +80,7 @@ const SocialProof = (props) => {
                 />
               );
             })}
-        </>
+        </div>
       )}
     </>
   );
