@@ -1,11 +1,12 @@
 import './ReviewCard.css';
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 
 const ReviewCard = ({ author, body, date }) => {
   return (
     <>
       <div className='review__info'>
         <div className='review__header'>
-          <h3 className='review__title'>{date}</h3>
+          <h3 className='review__title'>{formatDistanceToNow(new Date(date))}</h3>
         </div>
         <div className='review__body'>{body}</div>
         <div className='review__author'>{author}</div>
