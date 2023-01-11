@@ -12,7 +12,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { AuthContext } from './Auth/AuthContext';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(window.localStorage.getItem('token'));
   const setTokens = (data) => {
     window.localStorage.setItem('token', data.token);
     window.localStorage.setItem('user_id', data.user_id);

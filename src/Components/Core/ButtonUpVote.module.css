@@ -1,12 +1,9 @@
 .upvote__button {
   display: block;
-  font-size: 2rem;
   margin: 0;
   border: none;
-  border-radius: 5px;
   background-color: inherit;
   cursor: pointer;
-  transition: background-color .5s, scale .2s;
 }
 
 .up {
@@ -19,9 +16,36 @@
 
 .fill {
   fill: rgb(193, 214, 227);
+  transition: 0.5s;
 }
 
 .outline {
   fill: rgb(32, 105, 156);
+  transition: 0.5s;
 }
 
+.upvote__button:hover .outline {
+  fill: #f26323;
+}
+
+.upvote__button:active {
+  animation: jump 1s ease-in-out forwards;
+}
+
+.upvote__button:active .fill {
+  fill: #f26323;
+}
+
+@keyframes jump {
+  0% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -10px;
+  }
+
+  100% {
+    translate: 0 0;
+  }
+}
