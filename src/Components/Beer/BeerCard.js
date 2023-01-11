@@ -4,6 +4,7 @@ import ButtonTertiary from "../Core/ButtonTertiary";
 import ButtonSecondary from "../Core/ButtonSecondary";
 import Badge from '../../images/staff_pick.png'
 import { useState } from "react";
+import { useAuth } from '../../Auth/AuthContext';
 
 const BeerCard = ({ beerInfo, parent }) => {
   const [error, setError] = useState(undefined);
@@ -12,6 +13,7 @@ const BeerCard = ({ beerInfo, parent }) => {
   const id = beerInfo._id;
   const [kegs, setKegs] = useState(beerInfo.kegs);
   const [isSaved, setIsSaved] = useState(false);
+  const {isLoggedIn} = useAuth();
 
   const handleKegVote = async (event) => {
     const newKegs = kegs + 1;
@@ -89,12 +91,14 @@ const BeerCard = ({ beerInfo, parent }) => {
       <div className={styles.info__container}>
         <div className={styles.beer__basic__info}>
           <h3 className={styles.beer__title}>{beerInfo.title}</h3>
+         
+         {isLoggedIn && 
           <div className={styles.social__proof}>
             <div className={styles.upvote}>
               <div className={styles.upvote__score}>{kegs}</div>
             </div>
             <button onClick={handleKegVote} className={styles.upvote__button}>⬆️</button>
-          </div>
+          </div> }
 
           <div className={styles.basic__info__item}>
             <span className={styles.attribute}>From:</span> {beerInfo.country}
