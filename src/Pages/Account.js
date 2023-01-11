@@ -1,7 +1,7 @@
 import Hero from '../Components/Core/Hero';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import ButtonPrimary from '../Components/Core/ButtonPrimary';
+import BeerCard from '../Components/Beer/BeerCard';
 
 const Account = () => {
   const user_id = window.localStorage.getItem('user_id');
@@ -81,11 +81,9 @@ const Account = () => {
           </form>
           <h2 className='beer__title'>Your saved beers:</h2>
           <div>
-            {userData.saved.map((savedBeers) => {
+            {userData.saved.map((savedBeer) => {
               return (
-                <Link key={savedBeers.title} to={`/beer/${savedBeers._id}`}>
-                  <p className='attribute'>{savedBeers.title}</p>
-                </Link>
+                <BeerCard beerInfo={ savedBeer } parent='beerContainer'/>
               );
             })}
           </div>
