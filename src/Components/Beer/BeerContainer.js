@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import styles from './BeerContainer.module.css';
 import BeerCard from './BeerCard';
 import ButtonSecondary from '../Core/ButtonSecondary';
@@ -21,7 +21,7 @@ const BeerContainer = ({ beerData, setBeerData }) => {
   const getLowestCal = () => {
     setRefinement('cals');
 
-    fetch('https://zero-percent-brews-api.onrender.com/beers/low-cal')
+    fetch('https://zero-percent-brews-api.onrender.com/api/beers/low-cal')
       .then((response) => response.json())
       .then((data) => {
         setBeerData(data);
@@ -33,7 +33,7 @@ const BeerContainer = ({ beerData, setBeerData }) => {
 
     let type = event.target.value;
 
-    fetch(`https://zero-percent-brews-api.onrender.com/api/beers/${type}`)
+    fetch(`https://zero-percent-brews-api.onrender.com/api/beers/type/${type}`)
       .then((response) => response.json())
       .then((data) => {
         setBeerData(data);
