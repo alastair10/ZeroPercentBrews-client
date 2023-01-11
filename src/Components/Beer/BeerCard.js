@@ -3,11 +3,13 @@ import ButtonPrimary from '../Core/ButtonPrimary';
 import Badge from '../../images/staff_pick.png'
 import { useState } from "react";
 
-const BeerCard = ({ beerInfo }) => {
+const BeerCard = ({ beerInfo, parent }) => {
   const [error, setError] = useState(undefined);
   const token = window.localStorage.getItem("token");
+  const user_id = window.localStorage.getItem("user_id")
   const id = beerInfo._id;
   const [kegs, setKegs] = useState(beerInfo.kegs);
+  const [isSaved, setIsSaved] = useState(false);
 
   const handleKegVote = async (event) => {
     const newKegs = kegs + 1;
@@ -34,6 +36,47 @@ const BeerCard = ({ beerInfo }) => {
     
   };
 
+  console.log(parent)
+
+  const handleSave = () => {
+    fetch(`https://zero-percent-brews-api.onrender.com/api/user/${user_id}/saved`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        beer_id: beerInfo._id
+         }),
+      }
+    )
+      .then((response) => {
+        if (response.status === 200) {
+          setIsSaved(true);
+        }
+      })
+  }
+
+  const handleUnsave = () => {
+    fetch(`https://zero-percent-brews-api.onrender.com/api/user/${user_id}/saved`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        beer_id: beerInfo._id,
+        isSaved: true
+         }),
+      }
+    )
+      .then((response) => {
+        if (response.status === 200) {
+          setIsSaved(false);
+        }
+      })
+  }
+
   return (
     <div className={styles.beer}>
       {beerInfo.staffPick && <img className={styles.badge} src={Badge} alt="staff pick badge" />}
@@ -54,7 +97,7 @@ const BeerCard = ({ beerInfo }) => {
           </div>
 
           <div className={styles.basic__info__item}>
-            <span className={styles.attribute}>Type:</span> {beerInfo.type}
+            <span className={styles.attribute}>From:</span> {beerInfo.country}
           </div>
           <div className={styles.basic__info__item}>
             <span className={styles.attribute}>Calories:</span>{' '}
