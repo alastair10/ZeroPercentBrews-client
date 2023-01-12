@@ -12,5 +12,9 @@ describe('Navigates to the register page directly', () => {
     cy.get('button.ButtonPrimary_button__MIZnn').should('contain', 'Sign Up');
   });
 
+  it("does not allow an empty submission", () => {
+    cy.get('button.ButtonPrimary_button__MIZnn').contains("Sign Up").click();
+    cy.get('.Access_error_message__qRlAo').should('contain', 'All fields are required.');
 
+  });
 });
