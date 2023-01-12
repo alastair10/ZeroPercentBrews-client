@@ -4,6 +4,7 @@ import ButtonPrimary from '../Core/ButtonPrimary';
 import './SocialProof.css';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useAuth } from '../../Auth/AuthContext';
 
 const SocialProof = (props) => {
   const [error, setError] = useState(undefined);
@@ -11,6 +12,7 @@ const SocialProof = (props) => {
   const token = window.localStorage.getItem('token');
   const { id } = useParams();
   const [commentBody, setCommentBody] = useState('');
+  const { isLoggedIn } = useAuth();
 
   const handleChange = (e) => {
     setCommentBody(e.target.value);
@@ -53,8 +55,9 @@ const SocialProof = (props) => {
         <div className='social-proof'>
           <Rating beerData={props.beerData} />
 
+        <h2>Comments:</h2>
+        {isLoggedIn && 
           <div className='comment_box'>
-            <h2>What's brewin'?</h2>
             <form>
               <input
                 placeholder='Add your review here!'
@@ -67,6 +70,7 @@ const SocialProof = (props) => {
             </form>
             {error && <p>error</p>}
           </div>
+        }
 
           {props.beerData.comments
             .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
