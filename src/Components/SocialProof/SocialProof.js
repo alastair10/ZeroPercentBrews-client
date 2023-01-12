@@ -55,7 +55,7 @@ const SocialProof = (props) => {
         <div className='social-proof'>
           <Rating beerData={props.beerData} />
 
-        <h2>Comments:</h2>
+        <h2 className='comment_header'>Comments:</h2>
         {isLoggedIn && 
           <div className='comment_box'>
             <form>

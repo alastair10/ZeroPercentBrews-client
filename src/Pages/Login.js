@@ -7,6 +7,7 @@ import { useAuth } from '../Auth/AuthContext';
 
 const Login = () => {
   const { setTokens, setIsLoggedIn } = useAuth();
+  const [error, setError] = useState('');
 
   const [userData, setUserData] = useState({
     email: '',
@@ -44,9 +45,11 @@ const Login = () => {
       // set the data in authContext
       setTokens(data);
       setIsLoggedIn(true);
-      
       navigate('/');
     } else {
+      let data = await response.json();
+      console.log(data.error)
+      setError(data.error)
       navigate('/login');
     }
   };
@@ -74,6 +77,7 @@ const Login = () => {
           />
         </label>
         <ButtonPrimary text={'Submit'} onClick={handleSubmit} />
+        {error && <p className={styles.error_message}>{error}</p>}
       </form>
     </>
   );
