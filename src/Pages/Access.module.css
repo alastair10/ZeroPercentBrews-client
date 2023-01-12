@@ -25,6 +25,13 @@ label {
   margin-bottom: 2px;
 }
 
+.error_message {
+  color: #e11111;
+  font-weight: 700;
+  margin-top: 10px;
+  text-align: center;
+}
+
 @media only screen and (min-width: 425px) {
   form {
     display: flex;

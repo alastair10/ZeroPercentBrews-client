@@ -7,6 +7,7 @@ import { useAuth } from '../Auth/AuthContext';
 
 const Register = () => {
   const { setTokens, setIsLoggedIn } = useAuth();
+  const [error, setError] = useState('');
 
   const [userData, setUserData] = useState({
     username: '',
@@ -51,6 +52,9 @@ const Register = () => {
 
       navigate('/');
     } else {
+      let data = await response.json();
+      console.log(data.error);
+      setError(data.error);
       navigate('/register');
     }
   };
@@ -87,7 +91,9 @@ const Register = () => {
           />
         </label>
         <ButtonPrimary text={'Sign Up'} onClick={handleSubmit} />
+        {error && <p className={styles.error_message}>{error}</p>}
       </form>
+
     </>
   );
 };
