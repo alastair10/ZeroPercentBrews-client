@@ -26,4 +26,9 @@ describe('Selects beer from home page', () => {
     cy.get('.nav__home').click()
     cy.get('.hero__message_1').should('contain', 'Find and review,');
   })
+
+  it("can navigate back to the login page a beer listing", () => {
+    cy.get('.ButtonTertiary_button__5kBiD').contains("Log In").click()
+    cy.get('.hero__message_1').should('contain', 'Welcome back,');
+  })
 })
