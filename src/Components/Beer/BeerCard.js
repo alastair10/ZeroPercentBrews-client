@@ -13,6 +13,7 @@ const BeerCard = ({ beerInfo, parent, userData, setUserData, setIsSaved }) => {
   const user_id = window.localStorage.getItem("user_id");
   const id = beerInfo._id;
   const [upvotes, setUpvotes] = useState(beerInfo.upvotes);
+  const [voted, setVoted] = useState(false);
   const [savedBeers, setSavedBeers] = useState([]);
   const { isLoggedIn } = useAuth();
 
@@ -20,28 +21,32 @@ const BeerCard = ({ beerInfo, parent, userData, setUserData, setIsSaved }) => {
     const newUpvotes = upvotes + 1;
     event.preventDefault();
 
-    let response = await fetch(
-      `https://zero-percent-brews-api.onrender.com/api/beers/${id}/kegs`,
-      {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          kegs: newUpvotes,
-        }),
-      }
-    );
 
-    if (response.status === 200) {
-      await response.json();
-      setUpvotes(newUpvotes);
-    } else {
-      setError(response.status);
-      console.log(error);
+    if (!voted) {
+      let response = await fetch(
+        `https://zero-percent-brews-api.onrender.com/api/beers/${id}/kegs`,
+        {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            kegs: newUpvotes,
+          }),
+        }
+      );
+  
+      if (response.status === 200) {
+        await response.json();
+        setUpvotes(newUpvotes);
+        setVoted(true);
+      } else {
+        setError(response.status);
+        console.log(error);
+      }
     }
-  };
+   };
 
   const handleSave = async () => {
     let response = await fetch(
