@@ -24,7 +24,7 @@ const BeerListing = ({userData, setUserData, setIsSaved }) => {
       {beerData && (
         <div className="beer__listing__container">
           <div className="bCard_bInfo">
-            <BeerCard beerInfo={beerData} parent="beerListing" />
+            <BeerCard userData={userData} setUserData={setUserData} setIsSaved={setIsSaved} beerInfo={beerData} parent="beerListing" />
             <BeerInfo beerData={beerData} />
           </div>
           <SocialProof beerData={beerData} setCommentAdd={setCommentAdd} />
