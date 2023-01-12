@@ -48,8 +48,8 @@ const Login = () => {
       navigate('/');
     } else {
       let data = await response.json();
-      console.log(data.error)
-      setError(data.error)
+      console.log(data.error);
+      setError(data.error);
       navigate('/login');
     }
   };
