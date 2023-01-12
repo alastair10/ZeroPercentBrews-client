@@ -31,4 +31,11 @@ describe('Navigates to the register page directly', () => {
     cy.get('button.ButtonPrimary_button__MIZnn').contains("Sign Up").click();
     cy.get('.Access_error_message__qRlAo').should('contain', 'Invalid email address.');
   });
+
+  it("can navigate back to the homepage from a beer listing", () => {
+    cy.get('.nav__home').click()
+    cy.get('.hero__message_1').should('contain', 'Find and review,');
+  });
+
+
 });
