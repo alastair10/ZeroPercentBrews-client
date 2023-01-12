@@ -19,16 +19,21 @@ describe('Selects beer from home page', () => {
     cy.get('.review__count').should('contain', 'Z%B Team Rating:');
     cy.get('.social-proof').should('not.contain', 'Submit');
     cy.get('.social-proof').should('contain', 'Comments:');
-  })
+  });
 
   it("can navigate back to the homepage from a beer listing", () => {
     cy.get('.ButtonPrimary_button__MIZnn').contains("More Info").click()
     cy.get('.nav__home').click()
     cy.get('.hero__message_1').should('contain', 'Find and review,');
-  })
+  });
 
   it("can navigate back to the login page a beer listing", () => {
     cy.get('.ButtonTertiary_button__5kBiD').contains("Log In").click()
     cy.get('.hero__message_1').should('contain', 'Welcome back,');
-  })
+  });
+
+  it("can navigate back to the register page a beer listing", () => {
+    cy.get('.ButtonSecondary_button__wgU6f').contains("Sign Up").click()
+    cy.get('.hero__message_1').should('contain', 'Join the lager');
+  });
 })
