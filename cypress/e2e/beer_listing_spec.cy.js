@@ -16,6 +16,8 @@ describe('Selects beer from home page', () => {
     cy.get('.attribute').should('contain', 'Description:');
     cy.get('.attribute').should('contain', 'Ingredients:');
     cy.get('.attribute').should('contain', 'Volume:');
-    cy.get('.review_count').should('contain', 'Z%B Team Rating::');
+    cy.get('.review__count').should('contain', 'Z%B Team Rating:');
+    cy.get('.social-proof').should('not.contain', 'Submit');
+    cy.get('.social-proof').should('contain', 'Comments:');
   })
 })
