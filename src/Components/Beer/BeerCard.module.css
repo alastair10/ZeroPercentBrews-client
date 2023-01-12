@@ -51,6 +51,10 @@
 
 .type_calories__container {
   justify-self: end;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-bottom: 10px;
 }
 
 .beer__basic__info {
