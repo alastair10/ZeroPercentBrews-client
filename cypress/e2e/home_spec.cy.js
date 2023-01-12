@@ -2,7 +2,6 @@
 
 describe("Log In and Sign up buttons send user to relevant pages", () => {
   beforeEach(() => {
-    // change link to localhost:3000 once functional
     cy.visit("localhost:3000/");
   });
  
@@ -27,6 +26,6 @@ describe("Log In and Sign up buttons send user to relevant pages", () => {
   it("more info button takes user to  beer listing page ", () => {
     cy.get(".ButtonPrimary_button__MIZnn").contains("More Info").click();
  
-    cy.url().should("include", `/beer`)
+    cy.url().should("include", "/beer")
   } )
 })
