@@ -58,7 +58,7 @@ const SocialProof = (props) => {
         <h2 className='comment_header'>Comments:</h2>
         {isLoggedIn && 
           <div className='comment_box'>
-            <form>
+            <form className='comment_form'>
               <input
                 placeholder='Add your review here!'
                 type='text'
