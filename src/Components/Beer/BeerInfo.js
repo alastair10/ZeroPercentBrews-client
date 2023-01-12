@@ -15,6 +15,10 @@ const BeerInfo = (props) => {
             <span className="attribute">ABV:</span> {props.beerData.abv}%
           </div>
           <div className="info__item">
+            <span className="attribute">Description:</span>{" "}
+            {props.beerData.description}
+          </div>
+          <div className="info__item">
             <span className="attribute">Ingredients:</span>{" "}
             {props.beerData.ingredients}
           </div>
