@@ -16,6 +16,8 @@ const BeerCard = ({ beerInfo, parent, userData, setUserData, setIsSaved }) => {
   const [savedBeers, setSavedBeers] = useState([]);
   const { isLoggedIn } = useAuth();
 
+  console.log(userData)
+
   const handleKegVote = async (event) => {
     const newUpvotes = upvotes + 1;
     event.preventDefault();
@@ -104,6 +106,8 @@ const BeerCard = ({ beerInfo, parent, userData, setUserData, setIsSaved }) => {
     }
   }, [userData])
 
+
+  
 
   return (
     <>
