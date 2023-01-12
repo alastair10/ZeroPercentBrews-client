@@ -25,19 +25,12 @@ describe("Signing in", () => {
     cy.get(".Access_error_message__qRlAo").should('contain', 'Invalid login credentials');
   });
 
-  // it("with missing password, redirects to '/login'", () => {
-  //   cy.visit("/login");
-  //   cy.get("#email").type("someone@example.com");
-  //   cy.get("#submit").click();
+  it("displays an error with invalid password", () => {
+    cy.visit("http://localhost:3000/login");
+    cy.get('input[name=email]').type("alastairtest1@example.com");
+    cy.get('input[name=password]').type("alastairtest");
+    cy.get(".ButtonPrimary_button__MIZnn").contains("Submit").click();
 
-  //   cy.url().should("include", "/login");
-  // });
-
-  // it("with missing email, redirects to '/login'", () => {
-  //   cy.visit("/login");
-  //   cy.get("#password").type("password");
-  //   cy.get("#submit").click();
-
-  //   cy.url().should("include", "/login");
-  // });
+    cy.get(".Access_error_message__qRlAo").should('contain', 'Invalid login credentials');
+  });
 });
