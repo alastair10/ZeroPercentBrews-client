@@ -12,14 +12,23 @@ describe('Navigates to the register page directly', () => {
     cy.get('button.ButtonPrimary_button__MIZnn').should('contain', 'Sign Up');
   });
 
- xit("does not allow an empty submission", () => {
+ xit("shows a warning if empty form submission attempted", () => {
     cy.get('button.ButtonPrimary_button__MIZnn').contains("Sign Up").click();
     cy.get('.Access_error_message__qRlAo').should('contain', 'All fields are required.');
   });
 
-  it("does not allow a partial submission", () => {
+  xit("shows a warning if a partial submission is attempted", () => {
     cy.get('input[name="username"]').type("testUser");
+    cy.get('input[name="password"]').type("12345");
     cy.get('button.ButtonPrimary_button__MIZnn').contains("Sign Up").click();
     cy.get('.Access_error_message__qRlAo').should('contain', 'All fields are required.');
+  });
+
+  xit("shows a warning if an invalid email is attempted", () => {
+    cy.get('input[name="username"]').type("testUser");
+    cy.get('input[name="password"]').type("12345");
+    cy.get('input[name="email"]').type("notanemail.com");
+    cy.get('button.ButtonPrimary_button__MIZnn').contains("Sign Up").click();
+    cy.get('.Access_error_message__qRlAo').should('contain', 'Invalid email address.');
   });
 });
