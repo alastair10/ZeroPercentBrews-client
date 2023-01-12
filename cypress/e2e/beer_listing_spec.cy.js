@@ -11,8 +11,9 @@ describe('Selects beer from home page', () => {
     cy.url().should('include', '/beer/');
     cy.get('.beer__listing__container')
     cy.get('.attribute').should('contain', 'Brand:');
+    cy.get('.attribute').should('contain', 'From:');
     cy.get('.attribute').should('contain', 'ABV:');
-    cy.get('.attribute').should('contain', 'Type:');
+    cy.get('.attribute').should('contain', 'Description:');
     cy.get('.attribute').should('contain', 'Ingredients:');
     cy.get('.attribute').should('contain', 'Volume:');
   })
