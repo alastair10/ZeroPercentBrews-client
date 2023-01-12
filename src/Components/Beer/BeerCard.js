@@ -107,7 +107,7 @@ const BeerCard = ({ beerInfo, parent, userData, setUserData, setIsSaved }) => {
 
   return (
       <div className={styles.beer}>
-        {beerInfo.staffPick && (
+        {beerInfo.staffPicks && (
           <img className={styles.badge} src={Badge} alt="staff pick badge" />
         )}
         <img
