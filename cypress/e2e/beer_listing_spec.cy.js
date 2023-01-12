@@ -20,4 +20,10 @@ describe('Selects beer from home page', () => {
     cy.get('.social-proof').should('not.contain', 'Submit');
     cy.get('.social-proof').should('contain', 'Comments:');
   })
+
+  it("can navigate back to the homepage from a beer listing", () => {
+    cy.get('.ButtonPrimary_button__MIZnn').contains("More Info").click()
+    cy.get('.nav__home').click()
+    cy.get('.hero__message_1').should('contain', 'Find and review,');
+  })
 })
