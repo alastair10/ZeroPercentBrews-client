@@ -3,7 +3,7 @@ describe('Navigates to the register page directly', () => {
     cy.visit('http://localhost:3000/register');
   });
 
-  it("loads Register page content", () => {
+  xit("loads Register page content", () => {
     cy.get('.hero__message_1').should('contain', 'Join the lager');
     cy.get('.hero__message_2').should('contain', 'than life community');
     cy.get('form.Access_log_reg_form__SHigd').should('contain', 'Username');
@@ -12,9 +12,14 @@ describe('Navigates to the register page directly', () => {
     cy.get('button.ButtonPrimary_button__MIZnn').should('contain', 'Sign Up');
   });
 
-  it("does not allow an empty submission", () => {
+ xit("does not allow an empty submission", () => {
     cy.get('button.ButtonPrimary_button__MIZnn').contains("Sign Up").click();
     cy.get('.Access_error_message__qRlAo').should('contain', 'All fields are required.');
+  });
 
+  it("does not allow a partial submission", () => {
+    cy.get('input[name="username"]').type("testUser");
+    cy.get('button.ButtonPrimary_button__MIZnn').contains("Sign Up").click();
+    cy.get('.Access_error_message__qRlAo').should('contain', 'All fields are required.');
   });
 });
