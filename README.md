@@ -48,4 +48,4 @@ cd ZeroPercentBrews-client;
 npm run start;
 ```
 
-This will automatically open up a development version of the site at [localhost:3000](http://localhost:3000)
+This will automatically open up a development version of the site at `http://localhost:3000`
