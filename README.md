@@ -1,16 +1,18 @@
-# ZeroPercentBrews-client
+# ZeroPercentBrews - client
+ZeroPercentBrews is a site for users to rate and recommend non-alcoholic beers.
 
-This is the Client repo for the website 🔗 [ZeroPercentBrews.com](https://www.zeropercentbrews.com).
+<img src="https://media.giphy.com/media/OHdGVlXsAc4zYVwhSm/giphy.gif" width="500">
 
-[The accompanying API](https://github.com/alastair10/ZeroPercentBrews-api)
 
-## Video
+Visit the fully-deployed site at [zeropercentbrews.com](https://www.zeropercentbrews.com)
 
-[<img width="400px" src="https://i3.ytimg.com/vi/FMtE3SbgWtE/maxresdefault.jpg" >](https://youtu.be/FMtE3SbgWtE "ZeroPercentBrews.com Video")
+To see a full video run through of the site click [here](https://www.youtube.com/watch?v=FMtE3SbgWtE). (For the accompanying API project repo click [here](https://github.com/alastair10/ZeroPercentBrews-api).)
 
-## Purpose of site
+### Key features of the app
+| <img src="https://media.giphy.com/media/qTfBV0DJWI7qs1wB9l/giphy.gif" width="400"> | <img src="https://media.giphy.com/media/P7mYfm6CsepJ36wTWa/giphy.gif" width="400"> |
+|------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| <img src="https://media.giphy.com/media/HoLa6hpqcaZszgY15f/giphy.gif" width="400">  | <img src="https://media.giphy.com/media/M3n9xbNVmjG1isdbLU/giphy.gif" width="400">   |
 
-A community based site for users to rate and recommend non-alcoholic beers.
 
 ## Feature Roadmap
 
