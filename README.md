@@ -39,7 +39,7 @@ To see a full video run through of the site click [here](https://www.youtube.com
 
 ## How to Explore the Code
 
-Fully deployed at [ZeroPercentBrews.com]('https://www.zeropercentbrews.com/).
+Fully deployed at [ZeroPercentBrews.com](https://www.zeropercentbrews.com/).
 
 To work with the code, once you have cloned the repository:
 
@@ -48,4 +48,4 @@ cd ZeroPercentBrews-client;
 npm run start;
 ```
 
-This will automatically open up a development version of the site at [localhost:3000]('http://localhost:3000')
+This will automatically open up a development version of the site at [localhost:3000](http://localhost:3000)
