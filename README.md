@@ -11,7 +11,7 @@ To see a full video run through of the site click [here](https://www.youtube.com
 ### Key features of the app
 | <img src="https://media.giphy.com/media/qTfBV0DJWI7qs1wB9l/giphy.gif" width="400"> | <img src="https://media.giphy.com/media/P7mYfm6CsepJ36wTWa/giphy.gif" width="400"> |
 |------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
-| <img src="https://media.giphy.com/media/HoLa6hpqcaZszgY15f/giphy.gif" width="400">  | <img src="https://media.giphy.com/media/M3n9xbNVmjG1isdbLU/giphy.gif" width="400">   |
+| <img src="https://media.giphy.com/media/Bx0BOU9Qd6NVnd7VS6/giphy.gif" width="400">  | <img src="https://media.giphy.com/media/M3n9xbNVmjG1isdbLU/giphy.gif" width="400">   |
 
 
 ## Feature Roadmap
